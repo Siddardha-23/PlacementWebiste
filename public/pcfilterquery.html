@@ -13,14 +13,50 @@
         font-weight: 600;
    
     }
-    .filter-options {
+    /* .filter-options {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     .filter-options select {
         margin-right: 10px;
+    } */
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+      margin-bottom: 0;
     }
+
+    .filter-options label {
+      font-size: 15px;
+      /* font-weight: bold; */
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
+
+    .filter-options select,
+    .filter-options input[type="text"] {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .filter-options select {
+      min-width: 120px;
+    }
+
+    .filter-options input[type="text"] {
+      width: 80px;
+    }
+    
 
     #filter-btn,
     #download-btn {
@@ -67,60 +103,57 @@
 </ul>
 
 <div class="filter-options">
-<label for="branch">Branch:</label>
-<select id="branch">
-  <option value="null">All</option>
-  <option value="CSE">CSE</option>
-  <option value="ECE">ECE</option>
-  <option value="MECH">MECH</option>
-  <option value="EEE">EEE</option>
-  <option value="CIVIL">CIVIL</option>
-  <option value="PE">PE</option>
-  <option value="CHE">CHE</option>
-</select>
+    <label for="branch">Branch:</label>
+    <select id="branch">
+      <option value="null">All</option>
+      <option value="CSE">CSE</option>
+      <option value="ECE">ECE</option>
+      <option value="MECH">MECH</option>
+      <option value="EEE">EEE</option>
+      <option value="CIVIL">CIVIL</option>
+      <option value="PE">PE</option>
+      <option value="CHE">CHE</option>
+    </select>
 
-<label for="gender">Gender:</label>
-<select id="gender">
-  <option value="null">All</option>
-  <option value="Male">Male</option>
-  <option value="Female">Female</option>
-</select>
+    <label for="gender">Gender:</label>
+    <select id="gender">
+      <option value="null">All</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
 
-<label for="course">Course:</label>
-<select id="course">
-  <option value="null">All</option>
-  <option value="B.Tech">B.Tech</option>
-  <option value="M.Tech">M.Tech</option>
-</select>
-<label for="cgpa">CGPA:</label>
-<input type="text" name="cgpa" id="cgpa">
+    <label for="course">Course:</label>
+    <select id="course">
+      <option value="null">All</option>
+      <option value="B.Tech">B.Tech</option>
+      <option value="M.Tech">M.Tech</option>
+    </select>
+    <label for="gpa10">10thGPA:</label>
+    <input type="text" name="gpa10" id="gpa10">
+    <label for="gpa12">Inter/Diploma GPA:</label>
+    <input type="text" name="gpa12" id="gpa12">
+    <label for="cgpa">CGPA:</label>
+    <input type="text" name="cgpa" id="cgpa">
 </div>
-<!-- <button class="filter-btn" onclick="myfun();">Filter</button> -->
-<!-- <button id="filter-btn" onclick="myfun();" style="cursor: pointer;width: 200px;padding: 10px 10px;border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button> -->
-<!-- <button id="download-btn" onclick="download();">Download</button> -->
-<!-- <button id="filter-btn" onclick="download();" style="cursor: pointer; width: 200px;padding: 10px 10px;border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button> -->
 <div style="display: flex;">
-  <!-- <button id="filter-btn" onclick="myfun();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
-  <button id="download-btn" onclick="download();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left: 10px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button> -->
- 
-    <button id="filter-btn" onclick="myfun();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-right: 50px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
-    <button id="download-btn" onclick="download();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left: 50px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button>
-  
-  
+    <button id="filter-btn" onclick="myfun();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left:280px; margin-right: 100px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
+    <button id="download-btn" onclick="download();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left: 100px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button>  
 </div>
 <table id="student-table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Gender</th>
+      <th>RollNumber</th>
+      <th>Email</th>
       <th>Branch</th>
       <th>Course</th>
+      <th>10th CGPA</th>
+      <th>12th/Diploma CGPA</th>
       <th>CGPA</th>
     </tr>
   </thead>
   <tbody id="demo">
-    <!-- Student data will be populated here -->
   </tbody>
+  <p id="norecords"></p>
 </table>
 <script>
     var temp;
@@ -130,14 +163,30 @@
     var gender=document.getElementById("gender").value;
     var course=document.getElementById("course").value;
     var branch=document.getElementById("branch").value;
+    var gpa10=document.getElementById("gpa10").value;
+    var gpa12=document.getElementById("gpa12").value;
+    if(cgpa==""){
+      cgpa="0";
+    }
+    if(gpa10==""){
+      gpa10="0";
+    }
+    if(gpa12==""){
+      gpa12="0";
+    }
+  
  
-    console.log(cgpa,gender,course,branch);
-            fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + cgpa +"/").then(function (data) {
+    console.log(cgpa,gender,course,branch,gpa10,gpa12);
+            fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + gpa10 + "/" +gpa12 + "/" + cgpa +"/").then(function (data) {
                 data.json().then(function (temp1) {
                     console.log(temp1);
                     temp=temp1;
                     let placeholder = document.querySelector("#demo");
                     let text = ""
+                    if(temp1.length==0){
+                      console.log("nvjmchr");
+                      document.getElementById("norecords").innerHTML = "NO RECORDS TO DISPLAY";
+                    }
                     for (let i = 0; i < temp1.length; i++) {
                        
                             text += "<tr>";
@@ -145,8 +194,9 @@
                             text = text + "<td>" + temp1[i].email + "</td>";
                             text = text + "<td>" + temp1[i].branch + "</td>";
                             text = text + "<td>" + temp1[i].course + "</td>";
+                            text = text + "<td>" + temp1[i].gpa10 + "</td>";
+                            text = text + "<td>" + temp1[i].gpa12 + "</td>";
                             text = text + "<td>" + temp1[i].cgpa + "</td>";
-                          
 
                             text += "</tr>"
                     }
@@ -155,47 +205,25 @@
 });
     }
 
+    function download() {
+      if (temp && temp.length) {
+        const headers = ["Name", "Gender", "Course", "Email", "Phone", "10th GPA", "12th GPA", "CGPA"];
+        const dataToDownload = [headers].concat(temp.map(({ name, gender, course, email, phone, gpa10, gpa12, cgpa }) => ([name, gender, course, email, phone, gpa10, gpa12, cgpa])));
 
-  function downloadFile(data, filename, type) {
-  // Create an <a> element to act as the download link
-    var downloadLink = document.createElement('a');
-    
-    // Set the data and file name for the download
-    downloadLink.href = URL.createObjectURL(new Blob([data], { type: type }));
-    downloadLink.download = filename;
-    
-    // Append the download link to the document body
-    document.body.appendChild(downloadLink);
-    
-    // Trigger the download by clicking the link
-    downloadLink.click();
-    
-    // Remove the download link from the document body
-    document.body.removeChild(downloadLink);
-  }
+        const csvContent = "data:text/csv;charset=utf-8," + dataToDownload.map(e => e.join(",")).join("\n");
 
-function download() {
-  if (temp && temp.length) {
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "student_data_with_headers.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        console.log("No data to download");
+      }
+    }
 
-    const dataToDownload = temp.map(({ name, gender, course, email, cgpa }) => ({ name, gender, course, email, cgpa }));
-    
-    const csv = Papa.unparse(dataToDownload);
-
-    const blob = new Blob([csv], {type: 'text/csv'});
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'student_data.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
-  } else {
-    console.log("No data to download");
-  }
-}
 
 
 </script>

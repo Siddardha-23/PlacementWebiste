@@ -509,7 +509,7 @@ app.get('/student', (req, res) => {
   // Serve uploaded files
  
 
-app.get("/filter/:branch/:gender/:course/:cgpa/",async(req,res)=>{
+app.get("/filter/:branch/:gender/:course/:gpa10/:gpa12/:cgpa/",async(req,res)=>{
   console.log("called");
   const fill={};
    if(req.params["gender"]!="null"){
@@ -523,7 +523,7 @@ app.get("/filter/:branch/:gender/:course/:cgpa/",async(req,res)=>{
    }
     const test = await User.find(fill);
      const filteredStudents = test.filter(student => {
-      return  parseFloat(student.cgpa) >= parseFloat(req.params["cgpa"]);
+      return  parseFloat(student.cgpa) >= parseFloat(req.params["cgpa"]) && parseFloat(student.gpa10) >= parseFloat(req.params["gpa10"]) && parseFloat(student.gpa12) >= parseFloat(req.params["gpa12"]);
     });
     res.send(filteredStudents);
 
