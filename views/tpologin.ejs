@@ -48,21 +48,18 @@
 
       input[type="text"], input[type="password"] {
         border: none;
-        border-bottom: 2px solid #ccc;
         font-size: 16px;
         padding: 10px;
         width: 100%;
         outline: none;
-        background-color: transparent;
       }
 
-      input[type="text"]:focus, input[type="password"]:focus {
+      /*input[type="text"]:focus, input[type="password"]:focus {
         border-bottom: 2px solid #4a00e0;
-      }
+      }*/
 
       /* Styling for the login button */
       input[type="submit"] {
-        background-color: #4a00e0;
         border: none;
         border-radius: 20px;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
@@ -119,12 +116,12 @@
             <div class="input-field">
                 <input type="text" name="username" id="username"
                     placeholder="Enter Your Username" minlength="1" required>
-                <!-- <div class="underline"></div> -->
+                <div class="underline"></div> 
             </div>
             <div class="input-field">
                 <input type="password" name="password" id="password"
                     placeholder="Enter Your Password" minlength="8" required>
-                <!-- <div class="underline"></div> -->
+                <div class="underline"></div> 
             </div>
 
             <input type="submit" value="Login">
