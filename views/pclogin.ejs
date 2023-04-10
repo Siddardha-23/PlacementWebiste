@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/loginstyle.css">
+    <style>
+        body {
+            background-color: #F9F9FB;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("../css/bg2.jpg");
+            background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+        }
+  
+        .container {
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            background-color: #fff;
+            margin-top: 50px;
+        }
+  
+        .container h2 {
+            margin: 0 0 20px 0;
+            font-size: 28px;
+            text-align: center;
+            color: #444;
+        }
+  
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+  
+        form label {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #444;
+        }
+  
+        .input-field {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+  
+        .input-field input,
+        .input-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #555;
+            background-color: transparent;
+        }
+  
+        .input-field input::-webkit-input-placeholder,
+        .input-field textarea::-webkit-input-placeholder {
+            color: rgba(0, 0, 0, 0.5);
+        }
+  
+        .input-field .underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ccc;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+  
+        .input-field input:focus + .underline,
+        .input-field textarea:focus + .underline {
+            transform: scaleX(1);
+        }
+  
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+  
+        input[type="submit"]:hover {
+            background-color: #0069D9;
+        }
+  
+        input[type="submit"]:active {
+            transform: translateY(2px);
+        }
+  
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+  
+        .links a {
+            color: #00ff08;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease-in-out;
+        }
+  
+        .links a:hover {
+            color: #0069D9;
+        }
+    </style>
+      </style>
+</head>
+<body>
+    <main class="container">
+        <h2>PC Login</h2>
+        <% if (errorMessage) { %>
+            <p style="color: red"><%= errorMessage %></p>
+          <% } %>
+        <form action="/loginpc" method="post">
+            <div class="input-field">
+                <input type="email" name="email" id="email"
+                    placeholder="Enter Your Email" minlength="1" required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password"
+                    placeholder="Enter Your Password" minlength="8" required>
+                <div class="underline"></div>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+
+       
+    </main>
+</body>
+</html>
