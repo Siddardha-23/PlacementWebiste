@@ -22,17 +22,20 @@
         margin-right: 10px;
     }
 
-    .filter-btn {
-      cursor: pointer;
-      /* transition: all 0.3s ease; */
-     
-    }
+    #filter-btn,
+    #download-btn {
+    cursor: pointer;
+    width: 200px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    display: inline-block;
+  }
 
-    .filter-btn:hover {
-      cursor: pointer;
-      /* transform: scale(1.1); */
+    #filter-btn:hover,
+    #download-btn:hover {
+      transform: scale(1.1);
     }
-    
+      
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
@@ -93,9 +96,18 @@
 <input type="text" name="cgpa" id="cgpa">
 </div>
 <!-- <button class="filter-btn" onclick="myfun();">Filter</button> -->
-<button id="filter-btn" onclick="myfun();" style="cursor: pointer;width: 200px;padding: 10px 10px;border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
+<!-- <button id="filter-btn" onclick="myfun();" style="cursor: pointer;width: 200px;padding: 10px 10px;border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button> -->
 <!-- <button id="download-btn" onclick="download();">Download</button> -->
-<button id="filter-btn" onclick="download();" style="cursor: pointer; width: 200px;padding: 10px 10px;border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button>
+<!-- <button id="filter-btn" onclick="download();" style="cursor: pointer; width: 200px;padding: 10px 10px;border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button> -->
+<div style="display: flex;">
+  <!-- <button id="filter-btn" onclick="myfun();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
+  <button id="download-btn" onclick="download();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left: 10px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button> -->
+ 
+    <button id="filter-btn" onclick="myfun();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-right: 50px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
+    <button id="download-btn" onclick="download();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left: 50px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button>
+  
+  
+</div>
 <table id="student-table">
   <thead>
     <tr>
