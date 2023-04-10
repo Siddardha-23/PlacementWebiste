@@ -153,7 +153,7 @@
   </thead>
   <tbody id="demo">
   </tbody>
-  <p id="norecords"></p>
+  <p id="norecords" style="font-size: 50px; text-align: center;"></p>
 </table>
 <script>
     var temp;
@@ -175,7 +175,6 @@
       gpa12="0";
     }
   
- 
     console.log(cgpa,gender,course,branch,gpa10,gpa12);
             fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + gpa10 + "/" +gpa12 + "/" + cgpa +"/").then(function (data) {
                 data.json().then(function (temp1) {
