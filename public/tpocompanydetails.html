@@ -55,11 +55,12 @@
         <th>Location</th>
         <th>Salary</th>
         <th>Eligibility Criteria</th>
+        <th>Apply Link</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
-    <tbody ng-controller="myCtrl">
+    <tbody ng-controller="myCtrl" style="text-align: center;">
        
             <tr ng-repeat="user in users">
               <td>{{user.companyname}}</td>
@@ -67,16 +68,13 @@
               <td>{{user.location}}</td>
               <td>{{user.salary}}</td>
               <td>{{user.eligibility}}</td>
+              <td><a href="{{user.applylink}}">Apply</a></td>
               <td><form action="/editcompanydetails" method="get" ><input type="text" name="method" value="edit" hidden><input type="text" name="qid" id="qid" value="{{user._id}}" hidden>
                 <input type="submit" value="Edit"></form>  </td>
                 <td><form action="/editcompanydetails" method="get" ><input type="text" name="method" value="delete" hidden><input type="text" name="qid" id="qid" value="{{user._id}}" hidden>
                   <input type="submit" value="Delete"></form>  </td>
             </tr>
-        
-      
-   
-   
-    
+         
     </tbody>
   </table>
 </body>

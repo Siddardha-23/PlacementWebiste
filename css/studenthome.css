@@ -33,6 +33,7 @@ main h2 {
     font-weight: 600;
     margin-bottom: 2rem;
     position: relative;
+    margin-right: 45px;
 }
 
 main h2::before {
