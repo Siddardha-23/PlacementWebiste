@@ -31,7 +31,7 @@ router.get('/',(req,res)=>{
     {
      Company.findOne({_id: qid}) 
      .then(users => { 
-       res.render('tpoeditcompany',{companyname: users.companyname,jobrole: users.jobrole,location: users.location,salary: users.salary,eligibility: users.eligibility});
+       res.render('tpoeditcompany',{companyname: users.companyname,jobrole: users.jobrole,location: users.location,salary: users.salary,eligibility: users.eligibility, applylink: users.applylink});
      })
      .catch(err => {
        console.error(err);
@@ -59,6 +59,7 @@ router.post('/', async (req, res) => {
     user.salary = req.body.salary;
     user.location = req.body.location;
     user.eligibility = req.body.eligibility;
+    user.applylink = req.body.applylink;
     await user.save();
    res.redirect('/tpodisplaycompany');
  

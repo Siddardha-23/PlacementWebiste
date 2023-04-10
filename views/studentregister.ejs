@@ -6,6 +6,15 @@
     <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
     <title>Register Form</title>
     <link rel="stylesheet" href="/css/registerstyle.css">
+    <style>
+        body{
+            background-image: url('../css/bg2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     <main class="container">
@@ -15,7 +24,7 @@
           <% } %>
         <form action="/studentregister" method="post"  enctype="multipart/form-data">
             <div class="input-field">
-            <label style="font-weight: bolder;">Basic Details:</label>
+                <label style="font-weight: bolder;">Basic Details:</label>
             </div>
             <div class="input-field">
                 <input type="text" name="name" id="name"
@@ -35,9 +44,7 @@
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
                 </select>
-                </div>
-
-            
+            </div>            
             <div class="input-field">
                 <input type="password" name="password" id="password"
                     placeholder="Enter Your Password" minlength="8" required>
@@ -60,28 +67,28 @@
                 <div class="underline"></div>
             </div>
             <div class="input-field">
-            <label for="course">Select your course:</label><br>
-            <select id="course" name="course" required>
-            <option value="" disabled selected>-- Select your course --</option>
-            <option value="B.Tech">B.Tech</option>
-            <option value="M.tech">M.Tech</option>
-            </select>
+                <label for="course">Select your course:</label><br>
+                <select id="course" name="course" required>
+                <option value="" disabled selected>-- Select your course --</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.tech">M.Tech</option>
+                </select>
             </div>
             
             <div class="input-field">
-             <label for="branch">Select a department:</label><br>
-<select id="branch" name="branch" required>
-  <option value="" disabled selected>-- Select your branch --</option>
-  <option value="CSE">CSE</option>
-  <option value="ECE">ECE</option>
-  <option value="EEE">EEE</option>
-  <option value="MECH">MECH</option>
-  <option value="CIVIL">CIVIL</option>
-  <option value="PET">PE</option>
-  <option value="CHEM">CHE</option>
-</select>
+                <label for="branch">Select a department:</label><br>
+                <select id="branch" name="branch" required>
+                <option value="" disabled selected>-- Select your branch --</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="PET">PE</option>
+                <option value="CHEM">CHE</option>
+                </select>
 
-</div>
+            </div>
             
             <div class="input-field">
             <label style="font-weight: bolder;">Academic Details:</label>

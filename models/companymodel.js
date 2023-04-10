@@ -35,7 +35,11 @@ const CompanySchema = new mongoose.Schema({
       required: true
     },
     eligibility:{
-        type: String,
+      type: String,
+      required: true
+    },
+    applylink:{
+      type: String,
       required: true
     },
     
@@ -43,13 +47,9 @@ const CompanySchema = new mongoose.Schema({
   
   const Company = mongoose.model('companies', CompanySchema);
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-  
 
 
   module.exports = {

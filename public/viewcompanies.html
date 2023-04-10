@@ -56,20 +56,18 @@
         <th>Location</th>
         <th>Salary</th>
         <th>Eligibility Criteria</th>
+        <th>Apply</th>
       </tr>
     </thead>
-    <tbody ng-controller="vcCtrl">
+    <tbody ng-controller="vcCtrl" style="text-align: center;">
       <tr ng-repeat="user in users">
         <td>{{ user.companyname }}</td>
         <td>{{ user.jobrole }}</td>
         <td>{{ user.location }}</td>
         <td>{{ user.salary }}</td>
         <td>{{ user.eligibility }}</td>
-      </tr>
-      
-   
-   
-    
+        <td><a href="{{ user.applylink }}">Apply</a></td>
+      </tr> 
     </tbody>
   </table>
 </body>
