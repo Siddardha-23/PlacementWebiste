@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 const bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 
-
-
 const router = express.Router();
 app.set('view engine', 'ejs');
 mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1v2b.mongodb.net/jntuk', {
@@ -111,21 +109,15 @@ const UserSchema = new mongoose.Schema({
         required: true,
       },
       offerletter: {
-          type: String,
+        type: String,
       },
   });
   
-  const User = mongoose.model('studentusers', UserSchema);
-
-
+const User = mongoose.model('studentusers', UserSchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-  
-
-
-  module.exports = {
-    User: mongoose.model('studentusers', UserSchema)
-  };
+module.exports = {
+User: mongoose.model('studentusers', UserSchema)
+};
