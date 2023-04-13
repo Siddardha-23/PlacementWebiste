@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 const bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 
-
-
 const router = express.Router();
 app.set('view engine', 'ejs');
 mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1v2b.mongodb.net/jntuk', {
@@ -29,15 +27,9 @@ const TpoSchema = new mongoose.Schema({
 
 const TpoLogin = mongoose.model('tpouser', TpoSchema);
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-
-
-
-  module.exports = {
-    TpoLogin: mongoose.model('tpouser', TpoSchema)
-  };
+module.exports = {
+  TpoLogin: mongoose.model('tpouser', TpoSchema)
+};

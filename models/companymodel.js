@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 const bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 
-
-
 const router = express.Router();
 app.set('view engine', 'ejs');
 mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1v2b.mongodb.net/jntuk', {
@@ -15,11 +13,10 @@ mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1
   bufferCommands: false,
 });
 
-
 const CompanySchema = new mongoose.Schema({
     companyname:{
-        type: String,
-        required:true,
+      type: String,
+      required:true,
     },
     jobrole: {
       type: String,
@@ -31,7 +28,7 @@ const CompanySchema = new mongoose.Schema({
       required: true
     },
     salary:{
-        type: String,
+      type: String,
       required: true
     },
     eligibility:{
@@ -45,13 +42,11 @@ const CompanySchema = new mongoose.Schema({
     
   });
   
-  const Company = mongoose.model('companies', CompanySchema);
+const Company = mongoose.model('companies', CompanySchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-
-  module.exports = {
-    Company: mongoose.model('companies', CompanySchema)
-  };
+module.exports = {
+  Company: mongoose.model('companies', CompanySchema)
+};
