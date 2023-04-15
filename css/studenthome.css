@@ -8,6 +8,8 @@
     font-family: "Poppins", sans-serif;
 }
 
+
+
 body {
     background:white;
     background-repeat: no-repeat;
@@ -22,19 +24,25 @@ body {
 
 main.container {
     background: white;
-    min-width: 440px;
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
 main h2 {
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 2rem;
     position: relative;
     margin-right: 45px;
 }
 
+.img1 img{
+    width: 130px; height: 100px;
+}
+
+.img2 img{
+    width: 150px; height: 150px;
+}
 main h2::before {
     content: '';
     position: absolute;
@@ -60,7 +68,10 @@ main h2::before {
     display: inline-block;
     text-align: center;
     text-decoration: none;
+    width:400px;
     padding-right: 60px;
+    padding-top: 2%;
+    padding-left: 5%;
 }
 form {
     display: flex;
@@ -173,57 +184,50 @@ form input[type="submit"]:hover {
     display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
   }
 
-@media screen and (max-width:992px) and (min-width:800px){
-    .main2 {
-       width: 280px;
-       height: 320px;
-       padding-right: 0%;
-    
-    }
-    main h2 {
-        font-weight: 400;
+
+  @media screen and (max-width:1250px) and (min-width:994px){
+    main h2{
+        font-weight: 350px;
         padding-left: 15%;
         padding-right: 15%;
     }
-    main.container{
-        height: 680px;
-        width: 100%;
+    .main2 a img{
+        width:200px;
     }
-    .contact-us {
-        width:900px;
-        height: 100px;
-      }
-    .contact{
-        display: flex;
-        flex-direction: row;
-        gap:15%;
-        padding-left: 7%;
-    }
-    .main2 a img {
-        width: 210px;
-        height: 200px;
-    }
-}
-@media screen and (max-width:799px){
-   body{
-    width:1000px;
-    height: 900px;
+    .main2 {
+        width: 280px;
+        height: 320px;
+        padding-right: 0%;
+         padding-top: 4%;
+         align-items: center;
+     }
+  }
 
-   }
-   .main2 a img {
-    width: 210px;
-    height: 200px;
-}
-main h2 {
-    font-weight: 400;
-    padding-left: 15%;
-    padding-right: 15%;
-}
+  @media screen and (max-width:993px) and (min-width:770px) {
+    main h2{
+        font-weight: 350px;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .main2{
+        margin-left: 19%;
+    }
 
-.contact{
-    display: flex;
-    flex-direction: row;
-    gap:10%;
-    padding-left: 7%;
-}
-}
+  }
+
+  @media screen and (max-width:767px){
+    main h2{
+        font-weight: 200px;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .main2{
+        margin-left: 18%;
+    }
+    .img1 img{
+        width:100px;
+    }
+    .img2 img{
+        width:130px
+    }
+  }

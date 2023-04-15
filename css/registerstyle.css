@@ -20,7 +20,7 @@ body {
 }
 
 main.container {
-    margin-top: 20px;
+    margin-top: 5%;
     background: white;
     min-width: 600px;
     min-height: 40vh;
@@ -39,7 +39,7 @@ textarea{
 border: 1px solid lightgray;
    resize: none;
    border-radius: 5px;
-
+   width:800px;
    outline: none;
 
     -webkit-box-shadow: none;
