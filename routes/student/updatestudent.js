@@ -12,18 +12,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "./uploads");
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now() + "-" + file.originalname);
-    },
-  });
-  
-  const upload = multer({ storage: storage });
+  destination: function (req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 
-  const { User } = require('../../models/registermodel'); 
+const { User } = require('../../models/registermodel');
 
 
 
@@ -31,63 +31,85 @@ const router = express.Router();
 app.set('view engine', 'ejs');
 
 
-router.get('/',(req,res)=>{
-    const myCookie = req.cookies.user;
-      
+router.get('/', (req, res) => {
+  const myCookie = req.cookies.user;
+
   if (!myCookie) {
-    
-   res.render('studentregister',{errorMessage: ""});
+
+    res.render('studentregister', { errorMessage: "" });
     return;
   }
-    res.redirect('/studentaq',{message:''});
+  res.redirect('/studentaq', { message: '' });
 
-  });
+});
 
 
-router.post("/", upload.fields([{name:"profile", maxCount: 1},{ name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
-    try {
-     
-      
-      //   user.name = req.body.name;
-      //   user.phone = req.body.phone;
-      //   user.email = req.body.email;
-      //   user.achievements = req.body.achievements;
-      //   user.gpa10 = req.body.gpa10;
-      //   user.gpa12 = req.body.gpa12;
-      //   user.ug1 = req.body.ug1;
-      //   user.ug2 = req.body.ug2;
-      //   user.ug3 = req.body.ug3;
-      //   user.ug4 = req.body.ug4;
-      //   user.ug5 = req.body.ug5;
-      //   user.ug6 = req.body.ug6;
-      //   user.ug7 = req.body.ug7;
-      //   user.ug8 = req.body.ug8;
-     
-        if (req.files["resume"]) {
-            //  const resume = req.files["resume"][0].filename;
-            //  user.resume=resume;
-            req.body.resume=req.files["resume"][0].filename;
-         }
-         if(req.files["offerletter"]){
-             req.body.offerletter = req.files["offerletter"][0].filename;
-          
-        }
-        //  if(req.body.dob){
-        //      user.dob = req.body.dob;
-        //  }
+router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
+  try {
 
-      // await user.save();
-      // res.send("updated");
-      console.log(req.body);
-      const myquery={username: req.body.username };
-      await User.updateOne(myquery,req.body);
+    if (req.files["profile"]) {
+      req.body.profile = req.files["profile"][0].filename;
 
-      res.send("updated");
-     
-    } catch (error) {
-      console.error(error);
-      res.send("<h2>Resume upload failed!</h2>");
     }
-  });
 
-  module.exports = router;
+    if (req.files["resume"]) {
+      //  const resume = req.files["resume"][0].filename;
+      //  user.resume=resume;
+      req.body.resume = req.files["resume"][0].filename;
+    }
+    if (req.files["offerletter"]) {
+      req.body.offerletter = req.files["offerletter"][0].filename;
+
+    }
+
+    //  if(req.body.dob){
+    //      user.dob = req.body.dob;
+    //  }
+
+    // await user.save();
+    // res.send("updated");
+    console.log(req.body);
+    // const myquery={username: req.body.username };
+    // await User.updateOne(myquery,req.body);
+
+    User.updateOne({ "username": req.body.username }, {
+      $set: {
+        "name": req.body.name,
+        "email": req.body.email,
+        "phone": req.body.phone,
+        "gpa10": req.body.gpa10,
+        "gpa12": req.body.gpa12,
+        "cgpa": req.body.cgpa,
+        "course": req.body.course,
+        "backloghistory": req.body.backlogHistory,
+        "backlogs": req.body.backlogs,
+        "dob": req.body.dob,
+        "resume": req.body.resume,
+        "offerletter": req.body.offerletter,
+        "skills": req.body.skills,
+        "certifications": req.body.certificates,
+        "projects": req.body.project,
+        "address": req.body.address,
+        "schoool": req.body.school,
+        "intercollege": req.body.inter,
+        "profile": req.body.profile,
+        "achievements": req.body.achievements
+      }
+    }, { new: true }).then(result => {
+      console.log(result)
+      // res.status(200).json({
+
+      //  status:"updated"
+      // })
+    })
+
+
+    res.send("updated");
+
+  } catch (error) {
+    console.error(error);
+    res.send("<h2>Resume upload failed!</h2>");
+  }
+});
+
+module.exports = router;
