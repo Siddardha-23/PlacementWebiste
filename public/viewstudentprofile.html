@@ -119,7 +119,14 @@
                 placeholder="Enter Your Phone number" value="{{users.phone}}" minlength="10" min="6" required readonly>
               <div class="underline"></div>
             </div>
-          
+            
+            <div class="input-field">
+              <label>Address</label>
+              <input type="text" name="address" id="address"
+                  placeholder="Enter Your address" value="{{users.address}}" minlength="1" required readonly>
+              <div class="underline"></div>
+          </div>
+
             <div class="input-field">
               <label>Date Of Birth:</label>
               <input type="text" name="dob" id="dob" value="{{ users.dob | date: 'shortDate' }}" max="2005-01-01" required readonly>
@@ -151,6 +158,13 @@
             </div>
           
             <div class="input-field">
+              <label>School Name</label>
+              <input type="text" name="school" id="school"
+                  placeholder="Enter Your school name" value="{{users.school}}" minlength="1"  required readonly>
+              <div class="underline"></div>
+          </div>
+
+            <div class="input-field">
               <label>10th GPA:</label>
               <input type="number" name="10gpa" id="10gpa"
                 placeholder="Enter Your 10th GPA" value="{{users.gpa10}}" step="0.01" minlength="1" required readonly>
@@ -158,13 +172,20 @@
             </div>
           
             <div class="input-field">
+              <label>Intermediate/Diploma College </label>
+              <input type="text" name="inter" id="inter"
+                  placeholder="Enter Your Intermediate/Diploma college name" value="{{users.intercollege}}" minlength="1"  required readonly>
+              <div class="underline"></div>
+            </div>
+
+            <div class="input-field">
               <label>12th GPA:</label>
               <input type="number" name="12gpa" id="12gpa"
                 placeholder="Enter Your 12th GPA" value="{{users.gpa12}}" minlength="1" step="0.01" required readonly>
               <div class="underline"></div>
             </div>
           
-            <div class="input-field">
+            <!--<div class="input-field">
               <label style="font-weight: bold;">UG Semester Wise GPA:</label>
             </div>
           
@@ -216,7 +237,7 @@
                 <input type="number" name="ug8" id="ug8"
                     placeholder="Enter 8th semester GPA " value="{{users.ug8}}" minlength="1" step="0.01" required readonly>
                 <div class="underline"></div>
-            </div>
+            </div>-->
             <div class="input-field">
               <label>No of backlogs:</label>
               <input type="number" name="backlogs" id="backlogs"

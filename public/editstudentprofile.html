@@ -21,7 +21,9 @@
         .nav-link,.navbar-brand{
           color: white;
         }
-        
+        label,textarea{
+          font-size: large;
+        }
         form .input-field:first-child {
         margin-bottom: 0rem;
         }
@@ -91,85 +93,119 @@
         <h2 style="text-align: center;"> Edit Profile Details</h2>
         <form action="/updatestudent" method="post" #userForm="ngForm" ng-controller="myCtrl"  enctype="multipart/form-data" >
             <div class="input-field">
-            <label style="font-weight: bolder;">Basic Details:</label>
+            <label style="font-weight: bolder;">Basic Details</label>
             </div>
             
             <div class="input-field">
-                <label>Name:</label>
+                <label>Name</label>
                 <input type="text" name="name" id="name"
                   placeholder="Enter Your Full name" value="{{users.name}}" minlength="1" required>
                 <div class="underline"></div>
               </div>
             
               <div class="input-field">
-                <label>Username:</label>
+                <label>Username</label>
                 <input type="text" name="username" id="username"
                   placeholder="Enter Your Registration number" value="{{users.username}}" minlength="1" min="1" required>
                 <div class="underline"></div>
               </div>
               <div class="input-field">
-                <label>Gender:</label>
+                <label>Gender</label>
                 <input type="text" name="gender" id="gender" value="{{users.gender}}" minlength="1" min="1" required>
                 <div class="underline"></div>
               </div>
             
               <div class="input-field">
-                <label>Phone Number:</label>
+                <label>Phone Number</label>
                 <input type="number" name="phone" id="phone"
                   placeholder="Enter Your Phone number" value="{{users.phone}}" minlength="10" min="6" required>
                 <div class="underline"></div>
               </div>
+              <div class="input-field">
+                <label>Address</label>
+                <input type="text" name="address" id="address"
+                    placeholder="Enter Your address" value="{{users.address}}" minlength="1" required>
+                <div class="underline"></div>
+            </div>
 
               <div class="input-field">
-                <label>Date Of Birth:</label>
+                <label>Date Of Birth</label>
                 <input type="text"  value="{{ users.dob | date: 'shortDate' }}" max="2005-01-01" required readonly>
                 <div class="underline"></div>
               </div>
+
             <div class="input-field">
-                <label>New Date Of Birth:</label>
+                <label>New Date Of Birth</label>
                 <input type="date" name="dob" id="dob" max="2005-01-01" value="{{ users.dob }}">
                 <div class="underline"></div>
             </div>
+
             <div class="input-field">
-                <label>Email:</label>
+                <label>Email</label>
                 <input type="email" name="email" id="email"
                   placeholder="Enter Your Email" value="{{users.email}}" minlength="1" required>
                 <div class="underline"></div>
               </div>
+
               <div class="input-field">
-                <label for="course">Course:</label><br>
+                <label for="course">Course</label><br>
                 <input type="text" name="course" id="course"
                 value="{{users.course}}" minlength="1" required>
                 <div class="underline"></div>
               </div>
             
               <div class="input-field">
-                <label for="branch">Branch:</label><br>
+                <label for="branch">Branch</label><br>
                 <input type="text" name="branch" id="branch"
                 value="{{users.branch}}" minlength="1" required>
                 <div class="underline"></div>
               </div>
             
               <div class="input-field">
-                <label style="font-weight: bolder;">Academic Details:</label>
+                <label style="font-weight: bolder;">Academic Details</label>
               </div>
-            
+              
               <div class="input-field">
-                <label>10th GPA:</label>
+                <label>School Name</label>
+                <input type="text" name="school" id="school"
+                    placeholder="Enter Your school name" value="{{users.school}}" minlength="1"  required>
+                <div class="underline"></div>
+            </div>
+
+              <div class="input-field">
+                <label>10th GPA</label>
                 <input type="number" name="gpa10" id="gpa10"
                   placeholder="Enter Your 10th GPA" value="{{users.gpa10}}" step="0.01" minlength="1" required>
                 <div class="underline"></div>
               </div>
             
               <div class="input-field">
-                <label>12th GPA:</label>
+                <label>Intermediate/Diploma College </label>
+                <input type="text" name="inter" id="inter"
+                    placeholder="Enter Your Intermediate/Diploma college name" value="{{users.intercollege}}" minlength="1"  required>
+                <div class="underline"></div>
+              </div>
+              
+              <div class="input-field">
+                <label>12th GPA</label>
                 <input type="number" name="gpa12" id="gpa12"
                   placeholder="Enter Your 12th GPA" value="{{users.gpa12}}" minlength="1" step="0.01" required>
                 <div class="underline"></div>
               </div>
-            
               <div class="input-field">
-                <label style="font-weight: bold;">UG Semester Wise GPA:</label>
+                <label>Btech College </label>
+                <input type="text" name="btech" id="btech" value="University College Of Engineering Kakinada(A)" minlength="1"  disabled required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+              <label>Btech CGPA</label>
+              <input type="number" name="cgpa" id="cgpa"
+                  placeholder="Enter Btech CGPA" value="{{users.cgpa}}" minlength="1" step="0.01">
+              <div class="underline"></div>
+          </div>
+          
+              <!--<div class="input-field">
+                <label style="font-weight: bold;">UG Semester Wise GPA</label>
               </div>
             
               <div class="input-field">
@@ -220,38 +256,70 @@
                   <input type="number" name="ug8" id="ug8"
                       placeholder="Enter 8th semester GPA " value="{{users.ug8}}" minlength="1" step="0.01" required>
                   <div class="underline"></div>
-              </div>
+              </div>-->
               <div class="input-field">
-                <label>No of backlogs:</label>
+                <label>No of backlogs</label>
                 <input type="number" name="backlogs" id="backlogs"
                     placeholder="Enter no of backlogs" value="{{users.backlogs}}" minlength="1" required>
                 <div class="underline"></div>
             </div>
-          <label style="font-weight: bolder;margin-top: 20px;">Personal Details:</label>
+          <label style="font-weight: bolder;margin-top: 20px;">Personal Details</label>
           <div class="input-field">
-            <label>Resume:</label><br>
+            <label>Profile Picture</label><br>
+            <a href="uploads/{{ users.profile }}">profile</a>
+            <div class="underline"></div>
+        </div>
+          <div class="input-field">
+            <label>Upload new Picture</label><br>
+            <input type="file" name="pic" id="pic" accept="jpg/png/jpeg" required>
+            <div class="underline"></div>
+        </div>
+
+          <div class="input-field">
+            <label>Resume</label><br>
             <a href="uploads/{{ users.resume }}">resume</a>
             <div class="underline"></div>
         </div>
             <div class="input-field">
-                <label>Upload New Resume:</label><br>
+                <label>Upload New Resume</label><br>
                 <input type="file" name="resume" id="resume" accept="application/pdf" >
                 <div class="underline"></div>
             </div>
             
             <div class="input-field">
-                <label>Offer Letter:</label><br>
+                <label>Offer Letter</label><br>
                 <a href="uploads/{{ users.offerletter }}">offer letter</a>
                 <div class="underline"></div>
             </div>
             <div class="input-field">
-                <label>Upload New Offer Letter:</label><br>
+                <label>Upload New Offer Letter</label><br>
                 <input type="file" name="offerletter" id="offerletter" accept="application/pdf">
                 <div class="underline"></div>
             </div>
+
             <div class="input-field">
-                <label>Achievements:</label><br>
-                <textarea id="achievements" name="achievements"  rows="5" cols="90" required>{{users.achievements}}</textarea>
+              <label>Certifications</label><br>
+              <input type="text" name="certificates" id="certificates"
+                  placeholder="Enter Your certifications" value="{{users.certifications}}" minlength="1"  required>
+              <div class="underline"></div>              
+          </div>
+
+          <div class="input-field">
+            <label>Skills</label><br>
+            <input type="text" name="skills" id="skills"
+                placeholder="Enter Your skills" value="{{users.skills}}" minlength="1"  required>
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-field">
+          <label>Projects</label><br>
+          <input type="text" name="project" id="project"
+              placeholder="Enter Your Projects" value="{{users.projects}}" minlength="1"  required>
+          <div class="underline"></div>
+      </div>
+            <div class="input-field">
+                <label>Achievements</label><br>
+                <textarea id="achievements" name="achievements"  rows="4" cols="90" required>{{users.achievements}}</textarea>
             </div>
   
             <input type="submit" value="Update Details">
