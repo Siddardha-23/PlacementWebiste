@@ -31,8 +31,8 @@ router.post('/', (req, res) => {
     User.findOne({ username: username })
         .then((user) => {
             const username = user.username
-            const profilepic = "../../uploads" + user.profile 
-            user.profile =profilepic 
+            const profilepic = "../../uploads/" + user.profile 
+            user.profile = profilepic 
             console.log(user.profile,profilepic) 
             ejs.renderFile(path.join(__dirname,'../../views/resume-template.ejs'),{
                 data:user
