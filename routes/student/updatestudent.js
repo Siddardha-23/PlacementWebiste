@@ -44,7 +44,7 @@ router.get('/',(req,res)=>{
   });
 
 
-router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
+router.post("/", upload.fields([{name:"profile", maxCount: 1},{ name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
     try {
      
       
