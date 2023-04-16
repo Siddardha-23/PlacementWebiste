@@ -48,6 +48,9 @@ app.use('/displaycompanies', CompanyRouter);
 const TloginRouter = require('./routes/tpo/tpologin');
 app.use('/tpologin', TloginRouter);
 
+const Tfilter = require('./routes/tpo/tpofilter');
+app.use('/tpofilter',Tfilter)
+;
 const TqRouter = require('./routes/tpo/tpodisplayquery');
 app.use('/tpodisplayquery', TqRouter);
 
@@ -101,6 +104,7 @@ app.use('/pcreport', PrRouter);
 
 const FilterQuery = require('./routes/pc/filterquery');
 app.use('/filterquery', FilterQuery);
+
 
 //top page
 app.get('/',(req,res)=>{
