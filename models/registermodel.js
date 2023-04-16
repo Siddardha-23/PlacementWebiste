@@ -58,7 +58,7 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    ug1:{
+    /*ug1:{
         type: Number,
         required: true,
     },
@@ -89,7 +89,7 @@ const UserSchema = new mongoose.Schema({
     ug8:{
         type: Number,
         default:0,
-    },
+    },*/
     cgpa:{
         type: Number,
         default:0,
