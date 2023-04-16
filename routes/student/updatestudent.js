@@ -97,10 +97,6 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
       }
     }, { new: true }).then(result => {
       console.log(result)
-      // res.status(200).json({
-
-      //  status:"updated"
-      // })
     })
 
 
