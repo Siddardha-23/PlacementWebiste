@@ -69,6 +69,9 @@ app.use('/tpoaddpc', ApcRouter);
 const NtRouter = require('./routes/tpo/tpoaddnotification');
 app.use('/tpoaddnotification', NtRouter);
 
+const resumeRouter = require('./routes/tpo/tporesumedownload');
+app.use('/tporesumedownload', resumeRouter);
+
 const StRouter = require('./routes/tpo/tpoaddselected');
 app.use('/tpoaddselected', StRouter);
 
