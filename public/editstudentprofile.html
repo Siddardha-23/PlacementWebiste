@@ -111,7 +111,7 @@
               <div class="input-field">
                 <label>Username</label>
                 <input type="text" name="username" id="username"
-                  placeholder="Enter Your Registration number" value="{{users.username}}" minlength="1" min="1" required>
+                  placeholder="Enter Your Registration number" value="{{users.username}}" minlength="1" min="1" required readonly>
                 <div class="underline"></div>
               </div>
               <div class="input-field">
@@ -135,15 +135,9 @@
 
               <div class="input-field">
                 <label>Date Of Birth</label>
-                <input type="text"  value="{{ users.dob | date: 'shortDate' }}" max="2005-01-01" required readonly>
+                <input type="text" name="dob" value="{{ users.dob | date: 'shortDate' }}" max="2005-01-01" required>
                 <div class="underline"></div>
               </div>
-
-            <div class="input-field">
-                <label>New Date Of Birth</label>
-                <input type="date" name="dob" id="dob" max="2005-01-01" value="{{ users.dob }}">
-                <div class="underline"></div>
-            </div>
 
             <div class="input-field">
                 <label>Email</label>

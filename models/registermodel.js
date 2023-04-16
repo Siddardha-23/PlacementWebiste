@@ -94,6 +94,10 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    address: {
+        type: String,
+        default: true,
+    },
     backlogs: {
         type: Number,
         required: true,
