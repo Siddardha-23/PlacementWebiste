@@ -16,7 +16,7 @@
           <% } %>
         <form action="/studentregister" method="post"  enctype="multipart/form-data">
             <div class="input-field">
-                <label style="font-weight: bolder;">Basic Details:</label>
+                <label style="font-weight: bolder;">Basic Details</label>
             </div>
             <div class="input-field">
                 <input type="text" name="name" id="name"
@@ -46,7 +46,12 @@
                 <div class="underline"></div>
             </div>
             <div class="input-field">
-                <label for="gender">Select your gender:</label><br>
+                <input type="text" name="address" id="address"
+                    placeholder="Enter Your address" minlength="1" required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <label for="gender">Select your gender</label><br>
                 <select id="gender" name="gender" required>
                 <option value="" disabled selected>-- Select your gender --</option>
                 <option value="Male">Male</option>
@@ -55,13 +60,13 @@
                 </select>
             </div>
             <div class="input-field">
-                <label>Date Of Birth:</label>
+                <label>Date Of Birth</label>
                 <input type="date" name="dob" id="dob" max="2005-01-01" required>
                 <div class="underline"></div>
             </div>
            
             <div class="input-field">
-                <label for="course">Select your course:</label><br>
+                <label for="course">Select your course</label><br>
                 <select id="course" name="course" required>
                 <option value="" disabled selected>-- Select your course --</option>
                 <option value="B.Tech">B.Tech</option>
@@ -70,7 +75,7 @@
             </div>
             
             <div class="input-field">
-                <label for="branch">Select a department:</label><br>
+                <label for="branch">Select a department</label><br>
                 <select id="branch" name="branch" required>
                 <option value="" disabled selected>-- Select your branch --</option>
                 <option value="CSE">CSE</option>
@@ -85,14 +90,23 @@
             </div>
             
             <div class="input-field">
-            <label style="font-weight: bolder;">Academic Details:</label>
+            <label style="font-weight: bolder;">Academic Details</label>
+            </div>
+            <div class="input-field">
+                <input type="text" name="school" id="school"
+                    placeholder="Enter Your school name" minlength="1"  required>
+                <div class="underline"></div>
             </div>
               <div class="input-field">
                 <input type="number" name="gpa10" id="gpa10"
                     placeholder="Enter Your 10th GPA" minlength="1" step="0.01" required>
                 <div class="underline"></div>
             </div>
-
+            <div class="input-field">
+                <input type="text" name="inter" id="inter"
+                    placeholder="Enter Your Intermediate college name" minlength="1"  required>
+                <div class="underline"></div>
+            </div>
             <div class="input-field">
                 <input type="number" name="gpa12" id="gpa12"
                     placeholder="Enter Your 12th GPA" minlength="1" step="0.01" required>
@@ -142,28 +156,63 @@
                 <div class="underline"></div>
             </div>-->
             <div class="input-field">
+                <input type="text" name="btech" id="btech" value="University College Of Engineering Kakinada(A)" minlength="1"  disabled required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
                 <input type="number" name="cgpa" id="backlogs"
                     placeholder="Enter Btech CGPA" minlength="1" step="0.01">
                 <div class="underline"></div>
             </div>
+            
             <div class="input-field">
                 <input type="number" name="backlogs" id="backlogs"
                     placeholder="Enter no of backlogs" minlength="1">
                 <div class="underline"></div>
+            </div><br>
+            <div >
+                <label style="font-size:18px;">Backlog History</label>&emsp;
+                <input type="radio" name="backlogHistory"  value="yes">
+                <label for="backlogHistory" style="font-size:18px;color:grey;">Yes</label>
+                <input type="radio" name="backlogHistory"  value="no" checked>
+                <label for="backlogHistory" style="font-size:18px;color:grey;">No</label>
             </div>
-          <label style="font-weight: bolder;margin-top: 20px;">Personal Details:</label>
+          <label style="font-weight: bolder;margin-top: 20px;">Personal Details</label>
           <div class="input-field">
-                <label>Upload Resume:</label><br>
+            <label>Upload Picture</label><br>
+            <input type="file" name="pic" id="pic" accept="jpg/png/jpeg" required>
+            <div class="underline"></div>
+        </div>
+          <div class="input-field">
+                <label>Upload Resume</label><br>
                 <input type="file" name="resume" id="resume" accept="application/pdf" required>
                 <div class="underline"></div>
             </div>
             <div class="input-field">
-                <label>Upload Offer Letter:</label><br>
+                <label>Upload Offer Letter</label><br>
                 <input type="file" name="offerletter" id="offerletter" accept="application/pdf" >
                 <div class="underline"></div>
             </div>
             <div class="input-field">
-                <label>Achievements:</label><br>
+                <label>Certifications</label><br>
+                <input type="text" name="certificates" id="certificates"
+                    placeholder="Enter Your certifications" minlength="1"  required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <label>Skills</label><br>
+                <input type="text" name="skills" id="skills"
+                    placeholder="Enter Your skills" minlength="1"  required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <label>Projects</label><br>
+                <input type="text" name="project" id="project"
+                    placeholder="Enter Your Projects" minlength="1"  required>
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <label>Achievements</label><br>
                 <textarea id="achievements" name="achievements" rows="5" cols="90"></textarea>
             </div>
             <input type="submit" value="Register">
