@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
         .then((user) => {
             const username = user.username
             ejs.renderFile(path.join(__dirname,'../../views/resume-template.ejs'),{
-                name:username 
+                data:user
             },(err,html)=>{
                 if(err){
                     console.log(err) 

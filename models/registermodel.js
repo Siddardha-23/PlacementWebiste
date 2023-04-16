@@ -2,59 +2,59 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const bodyParser=require('body-parser');
+const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 const router = express.Router();
 app.set('view engine', 'ejs');
 mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1v2b.mongodb.net/jntuk', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  bufferCommands: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    bufferCommands: false,
 });
 
 const UserSchema = new mongoose.Schema({
     name: {
-      type: String,
-      required: true,
-    },
-    username:{
         type: String,
-        required:true,
+        required: true,
     },
-    gender:{
+    username: {
         type: String,
-        required:true,
+        required: true,
     },
-    password:{
+    gender: {
         type: String,
-        required:true,
+        required: true,
     },
-    phone:{
-        type: Number,
-        required:true,
-    },
-    dob:{
-        type: Date,
-        required:true,
-    },
-    email:{
+    password: {
         type: String,
-        required:true,
+        required: true,
     },
-    course:{
-        type: String,
-        required:true,
-    },
-    branch:{
-        type: String,
-        required:true,
-    },
-    gpa10:{
+    phone: {
         type: Number,
         required: true,
     },
-    gpa12:{
+    dob: {
+        type: Date,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    course: {
+        type: String,
+        required: true,
+    },
+    branch: {
+        type: String,
+        required: true,
+    },
+    gpa10: {
+        type: Number,
+        required: true,
+    },
+    gpa12: {
         type: Number,
         required: true,
     },
@@ -90,34 +90,53 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default:0,
     },*/
-    cgpa:{
+    cgpa: {
         type: Number,
-        default:0,
+        default: 0,
     },
-    backlogs:{
+    backlogs: {
         type: Number,
-        required:true,
+        required: true,
     },
 
-  
-    achievements: {
-        type: String,
-    },
-
-    resume: {
+    school: {
         type: String,
         required: true,
       },
-      offerletter: {
+      intercollege: {
         type: String,
+        required: true,
       },
-  });
-  
+    achievements: {
+        type: String,
+    },
+    certifications: {
+        type: String,
+    },
+    skills: {
+        type: String,
+    },
+    projects: {
+        type: String,
+    },
+    resume: {
+        type: String,
+        required: true,
+    },
+    profile: {
+        type: String,
+        required: true,
+    },
+    offerletter: {
+        type: String,
+    },
+});
+
 const User = mongoose.model('studentusers', UserSchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 module.exports = {
-User: mongoose.model('studentusers', UserSchema)
+    User: mongoose.model('studentusers', UserSchema)
 };
