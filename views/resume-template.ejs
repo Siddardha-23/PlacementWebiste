@@ -17,15 +17,6 @@
                 margin-right: 1rem;
                 margin-bottom: 1rem;
             }
-            .skills {
-                display: inline-block;
-                margin-right: 10px;
-                margin-bottom: 10px;
-                padding: 5px 10px;
-                background-color: #f2f2f2;
-                border-radius: 5px;
-            }
-
         </style>
     </head>
     <body>
@@ -84,28 +75,25 @@
           
           <div class="edu">
             <h2 style="font-size: 30px"><b>Education:</b></h2>
-            <div>               
-                <h3><b>University College Of Engineering Kakinada(A)</b></h3>
-                <h5><%= data.course%></h5>
-                <h5><%= data.branch%></h5>
-                <h5>B.Tech GPA:<%= data.gpa12%></h5>
-            </div>
-            <div>
-                <h3><b><%= data.intercollege%></b></h3>
-                <h5>Inter GPA:<%= data.gpa12%></h5>
-            </div>
-            <div>
-                <h3><b><%= data.school%></b></h3>
-                <h5>SSC GPA:<%= data.gpa10%></h5>
-            </div>
-        </div><br>
+                <ul>
+                    <li>
+                        <h3><b>University College Of Engineering Kakinada(A)</b></h3>
+                    <h5><%= data.course%></h5>
+                    <h5><%= data.branch%></h5>
+                    <h5>B.Tech GPA:<%= data.gpa12%></h5>
+                    </li>
+                    <li>
+                        <h3><b><%= data.intercollege%></b></h3>
+                    <h5>Inter GPA:<%= data.gpa12%></h5>
+                    </li>
+                    <li>
+                        <h3><b><%= data.school%></b></h3>
+                    <h5>Tenth GPA:<%= data.gpa10%></h5>
+                    </li>
+                </ul> 
+          </div>
 
-        <div>
-            <h2 style="font-size: 30px"><b>Projects:</b></h2>
-            <h5><%= data.projects%></h5>
-        </div><br>
-
-        <div>
+          <div class="certifi">
             <h2 style="font-size: 30px"><b>Certifications:</b></h2>
                     <% var certifiArr = data.certifications.split(","); %>
                     <ul>
@@ -116,13 +104,13 @@
           </div>
 
         <div class="skills">
-            <div>
-                <h2 style="font-size: 30px"><b>Skills</b></h2>
-                <% data.skills.forEach(function(skill){ %>
-                    <span class="skills"><%= skill %></span>
-                <% }); %>
-            </div>
-            
+            <h2 style="font-size: 30px"><b>Skills:</b></h2>
+            <% var skillsArr = data.skills.split(","); %>
+            <ul >
+              <% for (var i = 0; i < skillsArr.length; i++) { %>
+                <li style="display: inline-block;padding-right: 1rem;" ><h5><%= skillsArr[i] %></h5></li>
+              <% } %>
+            </ul>
           </div>
 
         <div class="achi">
@@ -133,7 +121,7 @@
                 <li><h5><%= achiArr[i] %></h5></li>
               <% } %>
             </ul>
-        </div><br>
+        </div>
 
           <div class="pro">
             <h2 style="font-size: 30px"><b>Projects:</b></h2>
