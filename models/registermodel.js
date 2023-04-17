@@ -111,7 +111,7 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
 
-    school: {
+    schoool: {
         type: String,
         required: true,
     },

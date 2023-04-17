@@ -15,13 +15,14 @@
                 vertical-align: top;
             }
         </style>
+       
     </head>
     <body>
         <div>     
             <h1><%= data.profile %></h1>      
-            <img src= <%= data.profile %> alt="profile" id="profile" class="rounded circle"/>
+            <img src="<%= data.profile %>" alt="profile" id="profile" class="rounded circle"/>
             <h2 style="text-align: right;font-size: 50px;" ><%= data.name%></h2>
-            <h5 style="text-align: right;"><%= data.email%> <img src="../css/email.png" width="20px" height="20px"></h5>      
+            <h5 style="text-align: right;"><%= data.email%> <img src="/css/email.png" id="email" width="20px" height="20px"/></h5>      
             <h5 style="text-align: right;"><%= data.phone%></h5>
             <h5 style="text-align: right;"><%= data.dob%></h5>
             <h5 style="text-align: right;"><%= data.address%></h5>
@@ -70,8 +71,8 @@
             </div>
           </div>-->
 
-          
-          <div class="education">
+          <div style="display: flex;">
+          <div class="education" style="display: flex 1px;">
             <h2 style="font-size: 30px"><b>Education:</b></h2>
             <div>               
                 <h3><b>University College Of Engineering Kakinada(A)</b></h3>
@@ -87,14 +88,14 @@
                 <h3><b><%= data.school%></b></h3>
                 <h5>SSC GPA:<%= data.gpa10%></h5>
             </div>
-        </div><br>
-
+            
         <div>
             <h2 style="font-size: 30px"><b>Projects:</b></h2>
             <h5><%= data.projects%></h5>
         </div><br>
+    </div><br>
 
-        <div>
+        <div style="display: flex 1px;">
             <h2 style="font-size: 30px"><b>Certifications:</b></h2>
                     <% var certifiArr = data.certifications.split(","); %>
                     <ul>
@@ -102,7 +103,6 @@
                         <li><h5><%= certifiArr[i] %></h5></li>
                       <% } %>
                     </ul>
-          </div>
 
         <div class="skills">
             <h2 style="font-size: 30px"><b>Skills</b></h2>
@@ -123,6 +123,8 @@
               <% } %>
             </ul>
         </div><br>
+    </div>
+</div>
 
           <div>
             <h2 style="font-size: 30px"><b>Projects:</b></h2>
