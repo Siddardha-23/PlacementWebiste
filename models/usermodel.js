@@ -16,6 +16,7 @@ mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1
 const LoginSchema = new mongoose.Schema({
   username: String,
   password: String,
+  // forgotpassword: String,
 });
 
 const LoginUser = mongoose.model('studentuser', LoginSchema);
