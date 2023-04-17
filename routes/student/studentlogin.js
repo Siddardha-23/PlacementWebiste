@@ -45,6 +45,7 @@ router.get('/',(req,res)=>{
       res.send("switch to student account");
     }
   }  
+  
     res.sendFile(__dirname+"/public/studenthome.html");
   });
   

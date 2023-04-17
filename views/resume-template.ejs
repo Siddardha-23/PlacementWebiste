@@ -12,10 +12,10 @@
         </style>
     </head>
     <body>
-        <div>           
+        <div class="border border-dark">           
             <img src="<%= data.profile%>" alt="profile" id="profile" class="rounded circle"/>
             <h2 style="text-align: right;font-size: 50px;" ><%= data.name%></h2>
-            <h5 style="text-align: right;"><%= data.email%></h5>            
+            <h5 style="text-align: right;"><%= data.email%></h5>     <i class="bi bi-envelope"></i>       
             <h5 style="text-align: right;"><%= data.phone%></h5>
             <h5 style="text-align: right;"><%= data.dob%></h5>
             <h5 style="text-align: right;"><%= data.address%></h5>
@@ -23,7 +23,7 @@
         
         <div>
             <h2 style="font-size:30px;"><b>Objective:</b></h2>
-            <h5>An enthusiastic and hardworking B.Tech graduate seeking a challenging role in a dynamic organization 
+            <h5 style="justify-content: center;">An enthusiastic and hardworking B.Tech graduate seeking a challenging role in a dynamic organization 
             where I can apply my technical skills and knowledge to contribute to the growth of the company.
              With a strong foundation in [list your core technical skills], I am eager to learn new technologies
               and work collaboratively with a team to solve complex problems. My ultimate goal is to build a successful
@@ -48,21 +48,21 @@
         </div><br>
 
         <div>
-            <h2><b>Projects:</b></h2>
+            <h2 style="font-size: 30px"><b>Projects:</b></h2>
             <h5><%= data.projects%></h5>
         </div><br>
 
         <div>
-            <h2><b>Certifications:</b></h2>
+            <h2 style="font-size: 30px"><b>Certifications:</b></h2>
             <h5><%= data.certifications%></h5>
         </div>
         <div>
-            <h2><b>Achievements:</b></h2>
+            <h2 style="font-size: 30px"><b>Achievements:</b></h2>
             <h5><%= data.achievements%></h5>
         </div><br>
 
         <div>
-            <h2><b>Skills</b></h2>
+            <h2 style="font-size: 30px"><b>Skills</b></h2>
             <h5><%= data.skills%></h5>
         </div>
 

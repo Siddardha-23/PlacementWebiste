@@ -45,7 +45,7 @@ router.get('/',(req,res)=>{
         res.send("switch to student account");
       }
     }  
-    res.redirect('/studentaq');
+    res.redirect('/viewnotifications');
 
   });
 
