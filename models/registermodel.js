@@ -102,15 +102,23 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    noofcompaniesplaced: {
+        type: Number,
+        required: true
+    },
+    namesofcompanies: {
+        type: String,
+        required: true
+    },
 
     school: {
         type: String,
         required: true,
-      },
-      intercollege: {
+    },
+    intercollege: {
         type: String,
         required: true,
-      },
+    },
     achievements: {
         type: String,
     },
