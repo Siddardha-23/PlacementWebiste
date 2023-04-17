@@ -33,7 +33,8 @@ router.post('/', async (req, res) => {
   const salary = req.body.salary;
   const eligibility = req.body.eligibility;
   const applylink = req.body.applylink;
-  const user = new Company({companyname,jobrole,location,salary,eligibility,applylink});
+  const lastdate = req.body.lastdate;
+  const user = new Company({companyname,jobrole,location,salary,eligibility,applylink,lastdate});
   await user.save();
   res.render('tponewcompany',{message:"New Posting added successfully"});
  

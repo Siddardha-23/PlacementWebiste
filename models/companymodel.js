@@ -39,6 +39,10 @@ const CompanySchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    lastdate:{
+      type:String,
+      required: true
+    },
     
   });
   
