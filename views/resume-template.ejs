@@ -9,31 +9,43 @@
             body{
                 margin: 2rem;
             }
-            .skills,.certifi{
-                width: 50%;
-                display: inline-block;
-                vertical-align: top;
+            .skills,.certifi,.pro,.edu,.achi,.obj{
+                margin: 1rem;
             }
+            .a{
+                text-align: right;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+            }
+            .skills {
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                padding: 5px 10px;
+                background-color: #f2f2f2;
+                border-radius: 5px;
+            }
+
         </style>
     </head>
     <body>
-        <div>           
-            <img src= <%= data.profile %> alt="profile" id="profile" class="rounded circle"/>
-            <h2 style="text-align: right;font-size: 50px;" ><%= data.name%></h2>
-            <h5 style="text-align: right;"><%= data.email%> <img src="../css/email.png" width="20px" height="20px"></h5>      
-            <h5 style="text-align: right;"><%= data.phone%></h5>
-            <h5 style="text-align: right;"><%= data.dob%></h5>
-            <h5 style="text-align: right;"><%= data.address%></h5>
-        </div>
+        <div style="background: linear-gradient(to right, #4776E6, #8e54e9);color: white;border-radius: 5px;">           
+            <img src= "<%= data.profile %>" alt="profile" id="profile" class="rounded circle"/>
+            <h2 style="font-size: 50px;" class="a" ><%= data.name%></h2>
+            <h5  class="a"><%= data.email%> <img src="../css/email.png" width="20px" height="20px"></h5>      
+            <h5  class="a"><%= data.phone%></h5>
+            <h5  class="a"><%= data.dob%></h5>
+            <h5  class="a pb-3"><%= data.address%></h5>
+        </div><br>
         
-        <div>
+        <div class="obj">
             <h2 style="font-size:30px;"><b>Objective:</b></h2>
-            <h5 style="justify-content: center;">An enthusiastic and hardworking B.Tech graduate seeking a challenging role in a dynamic organization 
+            <h5 style="text-align: justify;">An enthusiastic and hardworking B.Tech graduate seeking a challenging role in a dynamic organization 
             where I can apply my technical skills and knowledge to contribute to the growth of the company.
-             With a strong foundation in [list your core technical skills], I am eager to learn new technologies
+             With a strong foundation in <%= data.skills%>, I am eager to learn new technologies
               and work collaboratively with a team to solve complex problems. My ultimate goal is to build a successful
                career in a company and make a significant contribution to the industry.</h5>
-        </div><br>
+        </div>
 
         <!--<div class="container ">
             <div class="row align-items-center">
@@ -70,7 +82,7 @@
           </div>-->
 
           
-          <div class="education">
+          <div class="edu">
             <h2 style="font-size: 30px"><b>Education:</b></h2>
                 <ul>
                     <li>
@@ -101,16 +113,16 @@
           </div>
 
         <div class="skills">
-            <h2 style="font-size: 30px"><b>Skills</b></h2>
-            <% var skillsArr = data.skills.split(","); %>
-            <ul>
-              <% for (var i = 0; i < skillsArr.length; i++) { %>
-                <li><h5><%= skillsArr[i] %></h5></li>
-              <% } %>
-            </ul>
+            <div>
+                <h2 style="font-size: 30px"><b>Skills</b></h2>
+                <% data.skills.forEach(function(skill){ %>
+                    <span class="skills"><%= skill %></span>
+                <% }); %>
+            </div>
+            
           </div>
 
-        <div>
+        <div class="achi">
             <h2 style="font-size: 30px"><b>Achievements:</b></h2>
             <% var achiArr = data.achievements.split(","); %>
             <ul>
@@ -120,7 +132,7 @@
             </ul>
         </div><br>
 
-          <div>
+          <div class="pro">
             <h2 style="font-size: 30px"><b>Projects:</b></h2>
             <% var proArr = data.projects.split(","); %>
             <ul>
