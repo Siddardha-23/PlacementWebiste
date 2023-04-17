@@ -12,7 +12,8 @@
         </style>
     </head>
     <body>
-        <div>           
+        <div>     
+            <h1><%= data.profile %></h1>      
             <img src= <%= data.profile %> alt="profile" id="profile" class="rounded circle"/>
             <h2 style="text-align: right;font-size: 50px;" ><%= data.name%></h2>
             <h5 style="text-align: right;"><%= data.email%></h5>     <i class="bi bi-envelope"></i>       
@@ -42,7 +43,7 @@
                 <h5>Inter GPA:<%= data.gpa12%></h5>
             </div>
             <div>
-                <h3><b><%= data.school%></b></h3>
+                <h3><b><%= data.schoool%></b></h3>
                 <h5>SSC GPA:<%= data.gpa10%></h5>
             </div>
         </div><br>
@@ -52,6 +53,7 @@
             <h5><%= data.projects%></h5>
         </div><br>
 
+        
         <div>
             <h2 style="font-size: 30px"><b>Certifications:</b></h2>
             <h5><%= data.certifications%></h5>
