@@ -84,25 +84,28 @@
           
           <div class="edu">
             <h2 style="font-size: 30px"><b>Education:</b></h2>
-                <ul>
-                    <li>
-                        <h3><b>University College Of Engineering Kakinada(A)</b></h3>
-                    <h5><%= data.course%></h5>
-                    <h5><%= data.branch%></h5>
-                    <h5>B.Tech GPA:<%= data.gpa12%></h5>
-                    </li>
-                    <li>
-                        <h3><b><%= data.intercollege%></b></h3>
-                    <h5>Inter GPA:<%= data.gpa12%></h5>
-                    </li>
-                    <li>
-                        <h3><b><%= data.school%></b></h3>
-                    <h5>Tenth GPA:<%= data.gpa10%></h5>
-                    </li>
-                </ul> 
-          </div>
+            <div>               
+                <h3><b>University College Of Engineering Kakinada(A)</b></h3>
+                <h5><%= data.course%></h5>
+                <h5><%= data.branch%></h5>
+                <h5>B.Tech GPA:<%= data.gpa12%></h5>
+            </div>
+            <div>
+                <h3><b><%= data.intercollege%></b></h3>
+                <h5>Inter GPA:<%= data.gpa12%></h5>
+            </div>
+            <div>
+                <h3><b><%= data.school%></b></h3>
+                <h5>SSC GPA:<%= data.gpa10%></h5>
+            </div>
+        </div><br>
 
-          <div class="certifi">
+        <div>
+            <h2 style="font-size: 30px"><b>Projects:</b></h2>
+            <h5><%= data.projects%></h5>
+        </div><br>
+
+        <div>
             <h2 style="font-size: 30px"><b>Certifications:</b></h2>
                     <% var certifiArr = data.certifications.split(","); %>
                     <ul>
