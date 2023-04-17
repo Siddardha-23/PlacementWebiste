@@ -22,8 +22,7 @@
           width:1000px;
         }
       h2{
-          font-weight: 600;
-    
+          font-weight: 600;   
       }
       @media screen and (max-width:1100px){
         table{
@@ -97,13 +96,14 @@
   <table >
     <caption style="text-align: left;padding-bottom: 2%;"><h2>Placement Company Details</h2></caption>
     <thead>
-      <tr>
+      <tr  style="text-align: center;"">
         <th>Company Name</th>
         <th>Job Role</th>
         <th>Location</th>
         <th>Salary</th>
         <th>Eligibility Criteria</th>
         <th>Apply</th>
+        <th>Last Date</th>
       </tr>
     </thead>
     <tbody ng-controller="vcCtrl" style="text-align: center;">
@@ -114,6 +114,7 @@
         <td>{{ user.salary }}</td>
         <td>{{ user.eligibility }}</td>
         <td><a href="{{ user.applylink }}">Apply</a></td>
+        <td>{{ user.lastdate }}</td>
       </tr> 
     </tbody>
   </table>
