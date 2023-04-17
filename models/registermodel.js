@@ -42,6 +42,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    language: {
+        type: String,
+        required: true
+    },
     course: {
         type: String,
         required: true,

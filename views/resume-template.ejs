@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -95,7 +95,7 @@
 
     .overlay {
 
-      padding-top: 15%;
+     
       position: relative;
       background-color: black;
       height: 35%;
@@ -160,19 +160,18 @@
     </tr>
   </table>
 
-  <!-- <div class="rbox" style="background-color:black;margin-left:62%;border-top-left-radius:150px;
+   <div class="rbox" style="background-color:black;margin-left:62%;border-top-left-radius:150px;
     border-bottom-left-radius: 150px;border-top-right-radius:0px;
     border-bottom-right-radius: 0px; margin-right:0px;margin-top:200px"></div>
     <div class="rbox" style="margin-left:50%;border-top-left-radius:150px;
     border-bottom-left-radius: 150px;border-top-right-radius:0px;
-    border-bottom-right-radius: 0px; margin-right:0px;margin-top:-5px"></div> -->
+    border-bottom-right-radius: 0px; margin-right:0px;margin-top:-5px"></div>
   <div class="container">
 
     <div class="box overlay">
       <img src="./mine.jpeg">
     </div>
     <div class="box">
-      <br /><br /><br />
       <p class="hdc">Contact</p>
       <p class="hd1">Phone</p>
       <p class="t">
@@ -219,4 +218,400 @@
   </div>
 </body>
 
-</html>
+</html>-->
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <title>My Resume</title>
+    <style>
+      .box {
+      height: 100%;
+      width: 30%;
+      margin-left: 3.8%;
+      border-radius: 80px;
+      position: absolute;
+      margin-top: 2rem;
+      background: linear-gradient(to left, #4776E6, #8e54e9);
+    
+    font-size: 0.9rem;
+    font-weight: 300;
+      
+
+    }
+    </style>
+  </head>
+  <body>
+    
+    <div class="box">
+      <div>
+        <img src="/css/profile.jpg" width="50px" height="50px">
+      </div>
+      <div>
+        <h2 style="font-size: 30px"><b>Contact</b></h2>
+        <h3>Phone</h3>
+          <h5><%= data.phone%></h5>
+        <h3>Email</h3>
+          <h5> <%= data.email%></h5>
+        <h3>Address</h3>
+          <h5><%= data.address%></h5>
+      </div>
+
+        <div>
+          <h2 style="font-size: 30px"><b>Skills</b></h2>
+          <% var skillsArr = data.skills.split(","); %>
+          <ul>
+            <% for (var i = 0; i < skillsArr.length; i++) { %>
+              <li><%= skillsArr[i] %></li>
+            <% } %>
+          </ul>
+        </div> 
+        
+        <div>
+
+        </div>
+    </div>
+  
+</body>
+  
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <style>
+      
+      * {
+  box-sizing: border-box;
+  transition: 0.35s ease;
+}
+.rela-block {
+  display: block;
+  position: relative;
+  margin: auto;
+  /*top: ;
+  left: ;
+  right: ;
+  bottom: ;*/
+}
+.rela-inline {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+  /*top: ;
+  left: ;
+  right: ;
+  bottom: ;*/
+}
+.floated {
+  display: inline-block;
+  position: relative;
+  margin: false;
+  /*top: ;
+  left: ;
+  right: ;
+  bottom: ;*/
+  float:left;
+}
+.abs-center {
+  position: absolute;
+  text-align: center;
+}
+body {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 18px;
+  letter-spacing: 0px;
+  background: url("http://kingofwallpapers.com/leaves/leaves-016.jpg") right no-repeat;
+  background-size: cover;
+}
+body:before {
+  content: "";
+  display: false;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.92);
+}
+.caps {
+  text-transform: uppercase;
+}
+.justified {
+  text-align: justify;
+}
+p.light {
+  color: #777;
+}
+h2 {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 30px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #000;
+}
+h3 {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 21px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #000;
+}
+.page {
+  width: 90%;
+  margin: 60px auto;
+  max-width: 1200px;
+  background-color: #fff;
+  box-shadow: 6px 10px 28px 0px rgba(0,0,0,0.4);
+}
+.top-bar {
+  height: 150px;
+  background-color: #848484;
+  color: #fff;
+}
+.name {
+  display: false;
+  position: absolute;
+  left: calc(350px + 5%);
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  text-align: right;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 40px;
+}
+.name div {
+  width: 94%;
+}
+.side-bar {
+  display: false;
+  position: absolute;
+  margin: false;
+  
+  right: false;
+  bottom: 0;
+  width: 350px;
+  background-color: #f7e0c1;
+  padding: 320px 30px 50px;
+}
+.mugshot {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 50px;
+  left: 70px;
+  right: false;
+  bottom: false;
+  height: 210px;
+  width: 210px;
+}
+.mugshot .logo {
+  margin: -23px;
+}
+.logo {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 0;
+  left: 0;
+  right: false;
+  bottom: false;
+  z-index: 100;
+  margin: 0;
+  color: #000;
+  height: 250px;
+  width: 250px;
+}
+.logo .logo-svg {
+  height: 100%;
+  width: 100%;
+  stroke: #000;
+  cursor: pointer;
+}
+.logo .logo-text {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 58%;
+  left: 0;
+  right: 16%;
+  bottom: 0;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-size: 55px;
+  letter-spacing: 0px;
+  font-weight: 400;
+  line-height: 58.333333333333336px;
+}
+.social {
+  padding-left: 60px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.social:before {
+  content: "";
+  display: false;
+  position: absolute;
+  margin: false;
+  top: -4px;
+  left: 10px;
+  right: false;
+  bottom: false;
+  height: 35px;
+  width: 35px;
+  background-size: cover !important;
+}
+
+.side-header {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 20px auto ;
+  border-bottom: 1px solid #888;
+}
+.list-thing {
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+.content-container {
+  margin-right: 0;
+  width: calc(95% - 350px);
+  padding: 25px 40px 50px;
+}
+.content-container > * {
+  margin: 0 auto 25px;
+}
+.content-container > h3 {
+  margin: 0 auto 5px;
+}
+.content-container > p.long-margin {
+  margin: 0 auto 50px;
+}
+.title {
+  width: 80%;
+  text-align: center;
+}
+.separator {
+  width: 240px;
+  height: 2px;
+  background-color: #999;
+}
+.greyed {
+  background-color: #ddd;
+  width: 100%;
+  max-width: 580px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  letter-spacing: 6px;
+  font-weight: 600;
+  line-height: 20px;
+}
+@media screen and (max-width: 1150px) {
+  .name {
+    color: #fff;
+    font-family: 'Raleway';
+    font-size: 38px;
+    letter-spacing: 6px;
+    font-weight: 100;
+    line-height: 48px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- PAGE STUFF -->
+    <div class="rela-block page">
+  <div class="rela-block top-bar">
+    <div class="caps name  "><div class="abs-center"><b><%= data.name%></b></div></div>
+  </div>
+  <div class="side-bar">
+      <!--<div class="mugshot">
+          <div class="logo">
+              <svg viewbox="0 0 80 80" class="rela-block logo-svg">
+                  <path d="M 10 10 L 52 10 L 72 30 L 72 70 L 30 70 L 10 50 Z" stroke-width="2.5" fill="none"/>
+              </svg>
+          </div>
+      </div>-->
+      
+      <p class="rela-block caps side-header">Contact</p>
+      <p><b>Phone:</b> <%= data.phone%></p>
+      <p><b>Email:</b> <%= data.email%></p>
+      <p><b>Address:</b> <%= data.address%></p>
+
+      <p class="rela-block caps side-header">Skills</p>
+        <% var skillsArr = data.skills.split(","); %>        
+        <% for (var i = 0; i < skillsArr.length; i++) { %>
+          <p class="rela-block list-thing"><%= skillsArr[i] %></p>
+        <% } %>
+          
+      <p class="rela-block caps side-header">Certifications</p>
+      <% var certifiArr = data.certifications.split(","); %>        
+      <% for (var i = 0; i < certifiArr.length; i++) { %>
+        <p class="rela-block list-thing"><%= certifiArr[i] %></p>
+      <% } %> 
+  </div>
+  <div class="rela-block content-container">
+      
+      <div class="rela-block caps greyed">Objective</div>
+      <p class="long-margin" style="text-align: justify;">
+        An enthusiastic and hardworking B.Tech graduate seeking a challenging role in a dynamic organization where I can apply my technical skills and knowledge to contribute to the growth of the company. I am eager to learn new technologies and work collaboratively with a team to solve complex problems. My ultimate goal is to build a successful career in [list your desired field] and make a significant contribution to the industry
+      </p>
+      <div class="rela-block caps greyed" >Education</div>
+      <ul class="long-margin" >
+        <li>
+          <h5><b>University College Of Engineering Kakinada(A)</b></h5>
+          <p ><%= data.course%></p>
+          <p><%= data.branch%></p>
+          <p>B.Tech GPA:<%= data.gpa12%></p>
+        </li>
+        <li>
+          <h5><b><%= data.intercollege%></b></h5>
+          <p>Inter GPA:<%= data.gpa12%></p>
+        </li>
+        <li>
+          <h5><b><%= data.school%></b></h5>
+          <p>SSC GPA:<%= data.gpa10%></p>
+        </li>
+      </ul>
+
+      <div class="rela-block caps greyed" >Projects</div>
+        <% var proArr = data.projects.split(","); %>        
+        <% for (var i = 0; i < proArr.length; i++) { %>
+          <p class="rela-block list-thing"><%= proArr[i] %></p>
+        <% } %>
+
+      <div class="rela-block caps greyed" >Achievements/Awards</div>
+      <% var achiArr = data.achievements.split(","); %>        
+      <% for (var i = 0; i < achiArr.length; i++) { %>
+        <p class="rela-block list-thing"><%= achiArr[i] %></p>
+      <% } %>
+  </div>
+</div>
+  </body>
+
