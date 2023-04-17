@@ -23,6 +23,9 @@ app.use('/studentregister', RegisterRouter);
 const CpRouter = require('./routes/student/changepassword');
 app.use('/changepassword', CpRouter);
 
+// const FpRouter = require('./routes/student/forgotpassword');
+// app.use('/forgotpassword', FpRouter);
+
 const AqRouter = require('./routes/student/addquery');
 app.use('/addquery', AqRouter);
 
@@ -34,6 +37,7 @@ app.use('/epstudent', EpRouter);
 
 const SuRouter = require('./routes/student/updatestudent');
 app.use('/updatestudent', SuRouter);
+
 
 const ResponseRouter = require('./routes/student/displayresponse');
 app.use('/displayresponse', ResponseRouter);
@@ -213,6 +217,14 @@ app.get('/studentcp',(req,res)=>{
     }
   res.render('studentcp',{errorMessage:'',updateMessage:''});
 });
+// app.get('/forgotpassword',(req,res)=>{
+//   const myCookie = req.cookies.user;
+//   if(!myCookie){
+//       res.send("switch to student account");
+//       return;
+//     }
+//   res.render('forgotpassword',{errorMessage:'',updateMessage:''});
+// });
 
 app.get('/editstudentprofile',(req,res)=>{
   const myCookie = req.cookies.user;
