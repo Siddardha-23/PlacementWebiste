@@ -409,12 +409,12 @@ h3 {
   display: false;
   position: absolute;
   margin: false;
-  
+  position: absolute;
   right: false;
   bottom: 0;
   width: 350px;
   background-color: #f7e0c1;
-  padding: 320px 30px 50px;
+  padding: 300px 30px 50px;
 }
 .mugshot {
   display: false;
@@ -487,16 +487,18 @@ h3 {
 .side-header {
   font-family: 'Open Sans';
   font-size: 18px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-weight: 600;
   line-height: 20px;
-  margin: 27px auto ;
+  margin: 40.4px auto ;
   border-bottom: 1px solid #888;
 }
 .list-thing {
-  padding-left: 25px;
+  
   margin-bottom: 10px;
+  
 }
+
 .content-container {
   margin-right: 0;
   width: calc(95% - 350px);
@@ -529,7 +531,20 @@ h3 {
   font-size: 18px;
   letter-spacing: 3px;
   font-weight: 600;
-  line-height: 25px;
+  line-height: 27px;
+}
+.grey {
+  background-color: #888;
+  width: auto;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-align: left;
+  line-height: 27px;
+  border-radius: 10px;
+  float:left;
+  padding: 0px 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 @media screen and (max-width: 1150px) {
   .name {
@@ -567,17 +582,20 @@ h3 {
       <p><b>Email:</b> <%= data.email%></p>
       <p><b>Address:</b> <%= data.address%></p>
 
-      <p class="rela-block caps side-header">Skills</p>
+      <p class="rela-block caps side-header" >Skills</p>
         <% var skillsArr = data.skills.split(","); %>        
         <% for (var i = 0; i < skillsArr.length; i++) { %>
-          <p class="rela-block list-thing"><%= skillsArr[i] %></p>
+          <p class="rela-block grey "><%= skillsArr[i] %></p>
         <% } %>
           
-      <p class="rela-block caps side-header">Certifications</p>
+      <p class="rela-block caps side-header" >Certifications</p>
       <% var certifiArr = data.certifications.split(","); %>        
       <% for (var i = 0; i < certifiArr.length; i++) { %>
         <p class="rela-block list-thing"><%= certifiArr[i] %></p>
       <% } %> 
+
+      
+
   </div>
   <div class="rela-block content-container">
       
@@ -587,19 +605,19 @@ h3 {
       </p>
       <div class="rela-block caps greyed" >Education</div>
       <ul class="long-margin" >
-        <li>
-          <h5><b>University College Of Engineering Kakinada(A)</b></h5>
-          <p ><%= data.course%></p>
-          <p><%= data.branch%></p>
-          <p>B.Tech GPA:<%= data.gpa12%></p>
+        <li style="margin: 2%;">
+          <h5 style="margin: 0%;font-size: large;"><b>University College Of Engineering Kakinada(A)</b></h5>
+          <p style="margin: 0%;"><%= data.course%></p>
+          <p style="margin: 0%;"><%= data.branch%></p>
+          <p style="margin: 0%;">B.Tech GPA:<%= data.gpa12%></p>
         </li>
-        <li>
-          <h5><b><%= data.intercollege%></b></h5>
-          <p>Inter GPA:<%= data.gpa12%></p>
+        <li style="margin: 2%;">
+          <h5 style="margin: 0%;font-size: large;"><b><%= data.intercollege%></b></h5>
+          <p style="margin: 0%;"> Inter GPA:<%= data.gpa12%></p>
         </li>
-        <li>
-          <h5><b><%= data.schoool%></b></h5>
-          <p>SSC GPA:<%= data.gpa10%></p>
+        <li style="margin: 2%;">
+          <h5 style="margin: 0%;font-size: large;"><b><%= data.schoool%></b></h5>
+          <p style="margin: 0%;">SSC GPA:<%= data.gpa10%></p>
         </li>
       </ul>
 

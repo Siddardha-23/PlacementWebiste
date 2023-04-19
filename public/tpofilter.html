@@ -12,13 +12,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> 
   <style type="text/css">
     h2{
-        font-weight: 600;  
+        font-weight: 600;   
     }
     #student-table,.filter-options{
       margin:1rem;
     }
     table{
-      width:100%;      
+      width:100%;
     }
     @media screen and (max-width:1100px){
         table{
@@ -118,48 +118,36 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/tpodisplayquery"><img src="../css/Jntuk-logo.png" width="60px" height="50px">UCEK Training and Placement Cell</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"  style="color: white;" href="/tpodisplayquery">view Queries</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Student            
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/tpoaddselected">Add selected students</a></li>
-                  <li><a class="dropdown-item" href="/tpoaddnotification">Notify Students</a></li>
-                  <li><a class="dropdown-item" href="/tpodocuments">view student docs</a></li>              
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tporesumedownload">Resume </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpofilter"> Filter</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpoaddcompany">Add Company</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpodisplaycompany"> Company details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpoaddpc"> Add PC</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/"onclick="myFunction();"> Logout</a>
-              </li>              
-            </ul>       
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/pcdisplayquery"><img src="../css/Jntuk-logo.png" width="60px" height="50px">UCEK Training and Placement Cell</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"  style="color: white;" href="/pcdisplayquery">View Queries</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="/pcverify">Verify Students</a>
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link" href="/pcaddstudent">Add Students</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="/pcreport">View Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/filterquery"> Filter Students</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/" onclick="myFunction();">Logout</a>
+          </li>         
+        </ul>       
+      </div>
+    </div>
+  </nav>
   <br>
   <div class="filter-options">
     <label for="branch">Branch:</label>
@@ -187,8 +175,15 @@
       <option value="B.Tech">B.Tech</option>
       <option value="M.Tech">M.Tech</option>
     </select>
+    
     <label for="gpa10">10thGPA:</label>
     <input type="text" name="gpa10" id="gpa10">
+    <label for="Inter/Diploma">Inter/Diploma:</label>
+    <select id="intertype">
+      <option value="null">All</option>
+      <option value="Inter">Inter</option>
+      <option value="Diploma">Diploma</option>
+    </select>
     <label for="gpa12">Inter/Diploma GPA:</label>
     <input type="text" name="gpa12" id="gpa12">
     <label for="cgpa">CGPA:</label>
@@ -198,7 +193,7 @@
     <button id="filter-btn" onclick="myfun();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left:280px; margin-right: 100px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Filter</button>
     <button id="download-btn" onclick="download();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left: 100px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button>  
 </div>
-<table id="student-table" >
+<table id="student-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -224,6 +219,7 @@
     var course=document.getElementById("course").value;
     var branch=document.getElementById("branch").value;
     var gpa10=document.getElementById("gpa10").value;
+    var intertype=document.getElementById("intertype").value;
     var gpa12=document.getElementById("gpa12").value;
     if(cgpa==""){
       cgpa="0";
@@ -236,7 +232,7 @@
     }
   
     console.log(cgpa,gender,course,branch,gpa10,gpa12);
-            fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + gpa10 + "/" +gpa12 + "/" + cgpa +"/").then(function (data) {
+            fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + gpa10 + "/" + intertype + "/" + gpa12 + "/" + cgpa +"/").then(function (data) {
                 data.json().then(function (temp1) {
                     console.log(temp1);
                     temp=temp1;

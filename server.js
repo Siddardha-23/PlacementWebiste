@@ -600,7 +600,7 @@ app.get('/tpocd', (req, res) => {
 // Serve uploaded files
 
 
-app.get("/filter/:branch/:gender/:course/:gpa10/:gpa12/:cgpa/", async (req, res) => {
+app.get("/filter/:branch/:gender/:course/:gpa10/:intertype/:gpa12/:cgpa/", async (req, res) => {
   console.log("called");
   const fill = {};
   if (req.params["gender"] != "null") {
@@ -612,6 +612,10 @@ app.get("/filter/:branch/:gender/:course/:gpa10/:gpa12/:cgpa/", async (req, res)
   if (req.params["course"] != "null") {
     fill.course = req.params["course"];
   }
+  if(req.params["intertype"] != "null"){
+    fill.intertype = req.params["intertype"];
+  }
+
   const test = await User.find(fill);
   const filteredStudents = test.filter(student => {
     return parseFloat(student.cgpa) >= parseFloat(req.params["cgpa"]) && parseFloat(student.gpa10) >= parseFloat(req.params["gpa10"]) && parseFloat(student.gpa12) >= parseFloat(req.params["gpa12"]);
@@ -622,6 +626,3 @@ app.get("/filter/:branch/:gender/:course/:gpa10/:gpa12/:cgpa/", async (req, res)
 
 app.use("/uploads", express.static("uploads"));
 app.listen(3000, () => console.log("Server listening on port 3000"));
-
-
-
