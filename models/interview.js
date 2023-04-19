@@ -43,10 +43,10 @@ const interviewSchema = new mongoose.Schema({
         
     }
 
-})
+});
 
 
-const Interview = new mongoose.model('Interview', interviewSchema);
+const Interview = new mongoose.model('interview', interviewSchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
