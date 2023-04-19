@@ -42,7 +42,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    language: {
+    languages: {
         type: String,
         required: true
     },
@@ -110,7 +110,7 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    namesofcompanies: {
+    namesofcompaniesplaced: {
         type: String,
         required: true
     },

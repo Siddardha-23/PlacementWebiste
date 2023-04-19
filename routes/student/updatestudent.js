@@ -96,7 +96,7 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
         "profile": req.body.profile,
         "achievements": req.body.achievements,
         "noofcompaniesplaced": req.body.noofcompaniesplaced,
-        "namesofcompanies": req.body.namesofcompanies,
+        "namesofcompaniesplaced": req.body.namesofcompanies,
         "HighestPackage": req.body.HighestPackage
       }
     }, { new: true }).then(result => {
