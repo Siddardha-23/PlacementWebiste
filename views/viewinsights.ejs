@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Interview Experiences</title>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+      $http.get('/')
+        .then(function(response) {
+          $scope.experiences = response.data;
+        });
+    });
+  </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md  bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px"> UCEK Training and Placement Cell</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page"  style="color: white;font-size: 1rem;" href="/viewnotifications">Notifications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/studentaq" style="font-size: 1rem;">Add Query</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/queryresponse" style="font-size: 1rem;">View Response</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/selectedstudents" style="font-size: 1rem;">Selected students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/viewcompanies" style="font-size: 1rem;"> Company details</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Interviews    </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/shareexperience">Share Experience</a></li>
+                  <li><a class="dropdown-item" href="/viewinsights">View Insights</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Profile
+                  <img src="../css/profile1.png" width="45px" height="30px">
+                 
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/viewstudentprofile">View Profile</a></li>
+                  <li><a class="dropdown-item" href="/editstudentprofile">Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="/studentcp">Change Password</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/" onclick="myFunction();">Logout</a></li>
+                </ul>
+              </li>
+              <li><pre> </pre></li>
+            </ul>       
+          </div>
+        </div>
+      </nav>
+  <h1>Interview Experiences</h1>
+  <% if (experiences.length === 0) { %>
+    <p>No interview experiences have been shared yet.</p>
+  <% } else { %>
+    <% experiences.forEach((experience) => { %>
+      <div>
+        <h2><%= experience.name %></h2>
+        <p>Roll Number: <%= experience.roll %></p>
+        <p>Company: <%= experience.company %></p>
+        <p>Job Role: <%= experience.jobrole %></p>
+        <p>Package Offered: <%= experience.salary %></p>
+        <p><%= experience.experiences %></p>
+        <% if (experience.suggestions) { %>
+          <p><strong>Suggestions:</strong> <%= experience.suggestions %></p>
+        <% } %>
+      </div>
+    <% }); %>
+  <% } %>
+</body>
+</html>
