@@ -1,22 +1,33 @@
+
+
+
+  <!-- views/index.ejs -->
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>Interview Experiences</title>
-  <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope, $http) {
-      $http.get('/')
-        .then(function(response) {
-          $scope.experiences = response.data;
-        });
-    });
-  </script>
+  <style>
+    .container{
+        width:auto;
+    }
+    .nav-link,.navbar-brand{
+      color: white;
+    }
+    </style>
+    </head>
+    <script>
+    function myFunction()
+    {
+    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    }
+    </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md  bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px"> UCEK Training and Placement Cell</a>
+          <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px">UCEK Training and Placement Cell</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -59,27 +70,35 @@
                 </ul>
               </li>
               <li><pre> </pre></li>
-            </ul>       
+            </ul>    
           </div>
         </div>
       </nav>
-  <h1>Interview Experiences</h1>
+  <h1>Interview Experiences</h1><!--
   <% if (experiences.length === 0) { %>
     <p>No interview experiences have been shared yet.</p>
   <% } else { %>
     <% experiences.forEach((experience) => { %>
       <div>
-        <h2><%= experience.name %></h2>
-        <p>Roll Number: <%= experience.roll %></p>
-        <p>Company: <%= experience.company %></p>
-        <p>Job Role: <%= experience.jobrole %></p>
-        <p>Package Offered: <%= experience.salary %></p>
-        <p><%= experience.experiences %></p>
-        <% if (experience.suggestions) { %>
-          <p><strong>Suggestions:</strong> <%= experience.suggestions %></p>
-        <% } %>
-      </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                
+              <h5 class="card-title">Interview Experience </h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{experiences.company}}</h6>
+              <h2><%= experience.name %></h2>
+              <p>Roll Number: <%= experience.roll %></p>
+              <p>Company: <%= experience.company %></p>
+              <p>Job Role: <%= experience.jobrole %></p>
+              <p>Package Offered: <%= experience.salary %></p>
+              <p><%= experience.experiences %></p>
+              <% if (experience.suggestions) { %>
+                <p><strong>Suggestions:</strong> <%= experience.suggestions %></p>
+              <% } %>
+            </div>
+        </div>
+     </div>
     <% }); %>
   <% } %>
+    -->
 </body>
 </html>
