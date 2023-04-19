@@ -278,7 +278,7 @@
             <div class="input-field">
               <label>Names of Companies</label>
                 <input type="text" name="namesofcompanies" id="namesofcompanies"
-                    placeholder="Enter names of placed companies(NA if not placed) " value="namesofcompanies" minlength="1"  required readonly>
+                    placeholder="Enter names of placed companies(NA if not placed) " value="{{users.namesofcompanies}}" minlength="1"  required readonly>
                 <div class="underline"></div>
             </div>
 
@@ -318,7 +318,7 @@
             </div>
             <div class="input-field">
                 <label>Achievements</label><br>
-                <textarea id="achievements" name="achievements" placeholder="Enter your achievements(seperate by ',')" rows="4" cols="90" required readonly>{{users.achievements}}</textarea>
+                <textarea id="achievements" name="achievements"  style="font-size: medium;color: gray;" placeholder="Enter your achievements(seperate by ',')" rows="4" cols="90" required readonly>{{users.achievements}}</textarea>
             </div>            
         </form>     
     </main>
