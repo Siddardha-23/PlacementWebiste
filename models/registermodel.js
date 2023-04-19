@@ -146,6 +146,7 @@ const UserSchema = new mongoose.Schema({
     offerletter: {
         type: String,
     },
+    
 });
 
 const User = mongoose.model('studentusers', UserSchema);

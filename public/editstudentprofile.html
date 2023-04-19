@@ -54,7 +54,7 @@
 <body>
 <nav class="navbar navbar-expand-md  bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px">Training and Placement Cell</a>
+    <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px"> UCEK Training and Placement Cell</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,11 +69,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/queryresponse" style="font-size: 1rem;">View Response</a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="/selectedstudents" style="font-size: 1rem;">Selected students</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/viewcompanies" style="font-size: 1rem;"> Company details</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Interviews    </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/shareexperience">Share Experience</a></li>
+            <li><a class="dropdown-item" href="/viewinsights">View Insights</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Profile
@@ -270,11 +278,25 @@
                 <div class="underline"></div>
             </div>
 
+            <div class="input-field">
+              <label> Companies placed</label>
+              <input type="number" name="noofcompaniesplaced" id="noofcompaniesplaced"
+                  placeholder="Enter no of companies placed" value="{{users.noofcompaniesplaced}}" minlength="1" required>
+              <div class="underline"></div>
+          </div>
+
+          <div class="input-field">
+            <label>Names of Companies</label>
+              <input type="text" name="namesofcompanies" id="namesofcompanies"
+                  placeholder="Enter names of placed companies(NA if not placed) " value="{{users.namesofcompanies}}" minlength="1"  required>
+              <div class="underline"></div>
+          </div>
+
 
           <label style="font-weight: bolder;margin-top: 20px;">Personal Details</label>
           <div class="input-field">
             <label>Profile Picture</label><br>
-            <a href="uploads/{{ users.profile }}">profile</a>
+            <a href="uploads/{{ users.profile }}" style="font-size: medium;">profile</a>
             <div class="underline"></div>
         </div>
           <div class="input-field">
@@ -285,7 +307,7 @@
 
           <div class="input-field">
             <label>Resume</label><br>
-            <a href="uploads/{{ users.resume }}">resume</a>
+            <a href="uploads/{{ users.resume }}" style="font-size: medium;">resume</a>
             <div class="underline"></div>
         </div>
             <div class="input-field">
@@ -296,7 +318,7 @@
             
             <div class="input-field">
                 <label>Offer Letter</label><br>
-                <a href="uploads/{{ users.offerletter }}">offer letter</a>
+                <a href="uploads/{{ users.offerletter }}" style="font-size: medium;">offer letter</a>
                 <div class="underline"></div>
             </div>
             <div class="input-field">

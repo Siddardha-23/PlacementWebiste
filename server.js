@@ -8,10 +8,13 @@ var cookieParser = require('cookie-parser');
 
 const app = express();
 
+//app.use(express,bodyParser.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json);
 app.use(cookieParser());
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/css',express.static("css"));
+//app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/css', express.static("css"));
 const path = require('path');
 //routes import 
 const StudentloginRouter = require('./routes/student/studentlogin');
@@ -22,6 +25,11 @@ app.use('/studentregister', RegisterRouter);
 
 const CpRouter = require('./routes/student/changepassword');
 app.use('/changepassword', CpRouter);
+
+const Share = require('./routes/student/shareexperience');
+app.use('/shareexperience', Share);
+
+
 
 // const FpRouter = require('./routes/student/forgotpassword');
 // app.use('/forgotpassword', FpRouter);
@@ -42,19 +50,19 @@ app.use('/updatestudent', SuRouter);
 const ResponseRouter = require('./routes/student/displayresponse');
 app.use('/displayresponse', ResponseRouter);
 
-const CompanyRouter = require('./routes/student/displaycompanies'); 
+const CompanyRouter = require('./routes/student/displaycompanies');
 
 app.use('/displaycompanies', CompanyRouter);
 
 
 
- 
+
 const TloginRouter = require('./routes/tpo/tpologin');
 app.use('/tpologin', TloginRouter);
 
 const Tfilter = require('./routes/tpo/tpofilter');
-app.use('/tpofilter',Tfilter)
-;
+app.use('/tpofilter', Tfilter)
+  ;
 const TqRouter = require('./routes/tpo/tpodisplayquery');
 app.use('/tpodisplayquery', TqRouter);
 
@@ -111,7 +119,7 @@ app.use('/filterquery', FilterQuery);
 
 
 //top page
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
   res.render('main');
 });
 
@@ -120,102 +128,146 @@ app.get('/',(req,res)=>{
 app.get('/use-tpocookie', (req, res) => {
 
   const myCookie = req.cookies.tpo;
-  if(!myCookie){
-      res.send("switch to tpo account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to tpo account");
+    return;
+  }
   res.redirect('/tpodisplayquery');
 });
 
 app.get('/tpologout', (req, res) => {
   const myCookie = req.cookies.tpo;
-  if(!myCookie){
-      res.send("switch to tpo account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to tpo account");
+    return;
+  }
   res.clearCookie('tpo');
-  res.render('tpologin',{errorMessage:""});
+  res.render('tpologin', { errorMessage: "" });
 });
 //pc middleware
 app.get('/use-pccookie', (req, res) => {
 
   const myCookie = req.cookies.pc;
-  if(!myCookie){
-      res.send("switch to pc account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to pc account");
+    return;
+  }
   res.redirect('/pcdisplayquery');
 });
 
 app.get('/pclogout', (req, res) => {
   const myCookie = req.cookies.pc;
-  if(!myCookie){
-      res.send("switch to pc account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to pc account");
+    return;
+  }
   res.clearCookie('pc');
-  res.render('pclogin',{errorMessage:""});
+  res.render('pclogin', { errorMessage: "" });
 });
 
 //student middleware
 app.get('/student', (req, res) => {
-    /*res.sendFile(__dirname+'/studentregister.html');*/
-    const myCookie = req.cookies.user;
+  /*res.sendFile(__dirname+'/studentregister.html');*/
+  const myCookie = req.cookies.user;
   if (!myCookie) {
-    const pccookie =req.cookies.pc;
-    const tpocookie=req.cookies.tpo;
-    if(!pccookie&&!tpocookie)
-    {
+    const pccookie = req.cookies.pc;
+    const tpocookie = req.cookies.tpo;
+    if (!pccookie && !tpocookie) {
       res.render('student');
     }
-    else{
+    else {
       res.send("switch to student account");
     }
-    
+
     return;
   }
   console.log("cookie is set");
-  res.render('studentaq',{message:''});
-  });
+  res.render('studentaq', { message: '' });
+});
 
 app.get('/use-cookie', (req, res) => {
   var newcookie = req.cookies.user;
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   console.log('Cookies: ', newcookie);
 
   res.redirect('/studentaq');
 });
 
-app.get('/studentaq',(req,res)=>{
+app.get('/shareexperience',(req,res)=>{
+  res.render("shareexperience");
+})
+app.post('/shareexperience',async(req,res)=>{
+  try{
+    console.log(req.body)
+    const username = req.body.username;
+    const name = req.body.name;
+    const jobrole = req.body.jobrole;
+    const company = req.body.company
+    const salary = req.body.salary 
+    const experiences =req.body.experiences 
+    const suggestions =req.body.suggestions
+    const interview = new Interview({name,username,company,jobrole,salary,experiences,suggestions});
+    await interview.save();
+    res.render('shareexperience',{message:"Shared Succesfully"});
+  }
+  catch(error){
+res.status(400).send(error);
+  }
+})
+
+app.get('/studentaq', (req, res) => {
+  const myCookie = req.cookies.user;
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
+  res.render('studentaq', { message: '' });
+})
+
+/*app.get('/shareexperience',(req,res)=>{
   const myCookie = req.cookies.user;
   if(!myCookie){
       res.send("switch to student account");
       return;
     }
-  res.render('studentaq',{message:''});
+  res.render('/shareexperience',{message:''});
 })
+
+app.get('/viewinsights',(req,res)=>{
+  const myCookie = req.cookies.user;
+  if(!myCookie){
+      res.send("switch to student account");
+      return;
+    }
+  res.render('/viewinsights',{message:''});
+})*/
+
+
+
+
+
 
 app.get('/logout', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   res.clearCookie('user');
   res.redirect('/student');
 });
 
-app.get('/studentcp',(req,res)=>{
+app.get('/studentcp', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
-  res.render('studentcp',{errorMessage:'',updateMessage:''});
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
+  res.render('studentcp', { errorMessage: '', updateMessage: '' });
 });
 // app.get('/forgotpassword',(req,res)=>{
 //   const myCookie = req.cookies.user;
@@ -226,126 +278,126 @@ app.get('/studentcp',(req,res)=>{
 //   res.render('forgotpassword',{errorMessage:'',updateMessage:''});
 // });
 
-app.get('/editstudentprofile',(req,res)=>{
+app.get('/editstudentprofile', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   //res.render('editstudentprofile');
   res.redirect('/epstudent');
 });
 
-app.get('/queryresponse',(req,res)=>{
+app.get('/queryresponse', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   res.redirect('/displayresponse');
   //res.render('queryresponse');
 });
 
-app.get('/selectedstudents',(req,res)=>{
+app.get('/selectedstudents', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   res.render('branchselector');
 });
 
-app.get('/viewcompanies',(req,res)=>{
+app.get('/viewcompanies', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   //res.render('viewcompanies');
   res.redirect('/displaycompanies');
 });
- 
-app.get('/viewstudentprofile',(req,res)=>{
+
+app.get('/viewstudentprofile', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
   res.redirect('/viewstudent');
   //res.render('viewstudentprofile');
 });
 
 //angular controllers integration for student module
-const { Company } = require('./models/companymodel'); 
+const { Company } = require('./models/companymodel');
 const { Notification } = require('./models/notificationmodel');
-const { User } = require('./models/registermodel'); 
-const { Respo } = require('./models/responsemodel'); 
-const { Selected } = require('./models/selectedmodel'); 
+const { User } = require('./models/registermodel');
+const { Respo } = require('./models/responsemodel');
+const { Selected } = require('./models/selectedmodel');
 const { Query } = require('./models/querymodel');
 
 //viewcompanies student
-app.get('/dc',(req,res)=>{
+app.get('/dc', (req, res) => {
 
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
-    
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
+
   Company.find({})
-  .then(users => {
-    
-  res.json(users);
-  })
-  .catch(err => {
-    console.error(err);
-  });
+    .then(users => {
+
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+    });
 
 });
 
 //view notifications student
-app.get('/nc',(req,res)=>{
+app.get('/nc', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-    }
+  if (!myCookie) {
+    res.send("switch to student account");
+  }
   Notification.find({})
-  .then(users => {
+    .then(users => {
 
-  res.json(users);
-  
-  })
-  .catch(err => {
-    console.error(err);
-  });
+      res.json(users);
+
+    })
+    .catch(err => {
+      console.error(err);
+    });
 });
 
 //display profile student
-app.get('/dp',(req,res)=>{
+app.get('/dp', (req, res) => {
   const myCookie = req.cookies.user;
-  if(!myCookie){
-  res.send("switch to student account");
+  if (!myCookie) {
+    res.send("switch to student account");
   }
 
   const username = myCookie;
 
   User.findOne({ username: username })
-  .then((user) => {
+    .then((user) => {
 
-  res.json(user);
+      res.json(user);
 
-  })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).send('An error occurred');
-  });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('An error occurred');
+    });
 });
 
-  //display query responses for students
-  app.get('/dresponse',(req,res)=>{
+//display query responses for students
+app.get('/dresponse', (req, res) => {
 
   const myCookie = req.cookies.user;
-  if(!myCookie){
+  if (!myCookie) {
     res.send("switch to student account");
   }
 
@@ -353,121 +405,121 @@ app.get('/dp',(req,res)=>{
 
   console.log('entered');
 
-  Respo.find({username:username})
-  .then(user => {
-    
-  res.json(user);
-  })
-  .catch(err => {
-    console.error(err);
-  });
-  });
- 
+  Respo.find({ username: username })
+    .then(user => {
+
+      res.json(user);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+});
+
 //branch selector 
 var branchtemp;
-app.post('/displayselected',(req,res)=>{
+app.post('/displayselected', (req, res) => {
 
   const branch = req.body.branch;
-  
-  branchtemp=branch;
+
+  branchtemp = branch;
   const filePath = path.join(__dirname, './public/selectedstudents.html');
-res.sendFile(filePath);
+  res.sendFile(filePath);
 });
 
-app.get('/displayselected',(req,res)=>{
-const myCookie = req.cookies.user;
-if(!myCookie){
+app.get('/displayselected', (req, res) => {
+  const myCookie = req.cookies.user;
+  if (!myCookie) {
     res.send("switch to student account");
   }
-Selected.find({branch: branchtemp})
-.then(users => {
-  
-  res.json(users);
-})
-.catch(err => {
-  console.error(err);
-});
+  Selected.find({ branch: branchtemp })
+    .then(users => {
+
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+    });
 });
 
-app.get('/showeditprofile',(req,res)=>{
+app.get('/showeditprofile', (req, res) => {
 
   const myCookie = req.cookies.user;
-  if(!myCookie){
+  if (!myCookie) {
     res.send("switch to student account");
   }
 
-const username = myCookie;
+  const username = myCookie;
 
-User.findOne({ username: username })
-  .then((users) => {
+  User.findOne({ username: username })
+    .then((users) => {
 
-  res.json(users);
+      res.json(users);
 
-  })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).send('An error occurred');
-  });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('An error occurred');
+    });
 });
-    
+
 //pc angular controllers
 //pc display notifications queries
-app.get('/pcquerydisplay',(req,res)=>{
-    Query.find({})
-  .then(users => {
-    
-    res.json(users);
-  })
-  .catch(err => {
-    console.error(err);
-  });
+app.get('/pcquerydisplay', (req, res) => {
+  Query.find({})
+    .then(users => {
+
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+    });
 });
 
 //pc display student details
 var pcstemp;
-app.get('/pcshowdetails',(req,res)=>{
+app.get('/pcshowdetails', (req, res) => {
 
   const myCookie = req.query.username;
 
   const username = myCookie;
-  
-  pcstemp=myCookie;
+
+  pcstemp = myCookie;
   console.log("pcstemp");
   console.log(pcstemp);
   const filePath = path.join(__dirname, './public/pcviewstudent.html');
   res.sendFile(filePath);
-  
-  });
+
+});
 
 //pc display student details
-app.get('/pcds',(req,res)=>{
+app.get('/pcds', (req, res) => {
   const myCookie = req.cookies.pc;
-  if(!myCookie){
-      res.send("switch to PC account");
-    }
+  if (!myCookie) {
+    res.send("switch to PC account");
+  }
   User.findOne({ username: pcstemp })
-  .then((user) => {
-  
-  res.json(user);
+    .then((user) => {
 
-  })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).send('An error occurred');
-  });
+      res.json(user);
+
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('An error occurred');
+    });
 });
 
 //pc display student report
-app.get('/pcsr',(req,res)=>{
+app.get('/pcsr', (req, res) => {
 
   const myCookie = req.cookies.pc;
-if(!myCookie){
+  if (!myCookie) {
     res.send("switch to pc account");
   }
 
-    User.find({})
+  User.find({})
     .then(users => {
-      
+
       res.json(users);
     })
     .catch(err => {
@@ -476,34 +528,34 @@ if(!myCookie){
 });
 
 //pc get users
-app.get('/pcgetusers',(req,res)=>{
+app.get('/pcgetusers', (req, res) => {
 
-const myCookie = req.cookies.pc;
-if(!myCookie){
+  const myCookie = req.cookies.pc;
+  if (!myCookie) {
     res.send("switch to PC account");
   }
 
   User.find({})
-  .then(users => {
-    
-    res.json(users);
-  })
-  .catch(err => {
-    console.error(err);
-  });
+    .then(users => {
+
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+    });
 });
 
 //tpo view query controller
-app.get('/tpovc',(req,res)=>{
+app.get('/tpovc', (req, res) => {
 
   const myCookie = req.cookies.tpo;
-  if(!myCookie){
+  if (!myCookie) {
     res.send("switch to TPO account");
   }
 
-    Query.find({})
+  Query.find({})
     .then(users => {
-      
+
       res.json(users);
     })
     .catch(err => {
@@ -511,15 +563,15 @@ app.get('/tpovc',(req,res)=>{
     });
 });
 //tpo view documents
-app.get('/tpovd',(req,res)=>{
+app.get('/tpovd', (req, res) => {
 
   const myCookie = req.cookies.tpo;
-  if(!myCookie){
+  if (!myCookie) {
     res.send("switch to TPO account");
   }
-    User.find({})
+  User.find({})
     .then(users => {
-      
+
       res.json(users);
     })
     .catch(err => {
@@ -528,16 +580,16 @@ app.get('/tpovd',(req,res)=>{
 });
 
 //tpocompaydetails
-app.get('/tpocd',(req,res)=>{
+app.get('/tpocd', (req, res) => {
 
   const myCookie = req.cookies.tpo;
-  if(!myCookie){
+  if (!myCookie) {
     res.send("switch to TPO account");
   }
 
-    Company.find({})
+  Company.find({})
     .then(users => {
-      
+
       res.json(users);
     })
     .catch(err => {
@@ -545,26 +597,26 @@ app.get('/tpocd',(req,res)=>{
     });
 });
 
-  // Serve uploaded files
- 
+// Serve uploaded files
 
-app.get("/filter/:branch/:gender/:course/:gpa10/:gpa12/:cgpa/",async(req,res)=>{
+
+app.get("/filter/:branch/:gender/:course/:gpa10/:gpa12/:cgpa/", async (req, res) => {
   console.log("called");
-  const fill={};
-   if(req.params["gender"]!="null"){
-     fill.gender=req.params["gender"];
-   }
-   if(req.params["branch"]!="null"){
-      fill.branch=req.params["branch"];
-   }
-   if(req.params["course"]!="null"){
-    fill.course=req.params["course"];
-   }
-    const test = await User.find(fill);
-     const filteredStudents = test.filter(student => {
-      return  parseFloat(student.cgpa) >= parseFloat(req.params["cgpa"]) && parseFloat(student.gpa10) >= parseFloat(req.params["gpa10"]) && parseFloat(student.gpa12) >= parseFloat(req.params["gpa12"]);
-    });
-    res.send(filteredStudents);
+  const fill = {};
+  if (req.params["gender"] != "null") {
+    fill.gender = req.params["gender"];
+  }
+  if (req.params["branch"] != "null") {
+    fill.branch = req.params["branch"];
+  }
+  if (req.params["course"] != "null") {
+    fill.course = req.params["course"];
+  }
+  const test = await User.find(fill);
+  const filteredStudents = test.filter(student => {
+    return parseFloat(student.cgpa) >= parseFloat(req.params["cgpa"]) && parseFloat(student.gpa10) >= parseFloat(req.params["gpa10"]) && parseFloat(student.gpa12) >= parseFloat(req.params["gpa12"]);
+  });
+  res.send(filteredStudents);
 
 })
 
@@ -573,4 +625,3 @@ app.listen(3000, () => console.log("Server listening on port 3000"));
 
 
 
-  

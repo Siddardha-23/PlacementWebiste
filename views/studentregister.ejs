@@ -176,7 +176,21 @@
                 <input type="number" name="backlogs" id="backlogs"
                     placeholder="Enter no of backlogs" minlength="1">
                 <div class="underline"></div>
-            </div><br>
+            </div>
+
+            <div class="input-field">
+                <input type="number" name="noofcompaniesplaced" id="noofcompaniesplaced"
+                    placeholder="Enter no of companies placed" minlength="1" required>
+                <div class="underline"></div>
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="namesofcompanies" id="namesofcompanies"
+                    placeholder="Enter names of placed companies(NA if not placed) " minlength="1"  required>
+                <div class="underline"></div>
+            </div>
+
+            <br>
             <div >
                 <label style="font-size:18px;">Backlog History</label>&emsp;
                 <input type="radio" name="backlogHistory"  value="yes">
@@ -185,10 +199,13 @@
                 <label for="backlogHistory" style="font-size:18px;color:grey;">No</label>
             </div>
           <label style="font-weight: bolder;margin-top: 20px;">Personal Details</label>
+          <span id="profile" class="form-text" style="font-size: medium;color:grey;">(Upload files with your rollnumber)</span>
           <div class="input-field">
             <label>Upload Picture</label><br>
-            <input type="file" name="profile" id="profile" accept="jpg/png/jpeg" required>
+            <input type="file" name="profile" id="profile" accept="jpg/png/jpeg" aria-labelledby="profile" required>            
             <div class="underline"></div>
+            
+
         </div>
           <div class="input-field">
                 <label>Upload Resume</label><br>
@@ -220,7 +237,7 @@
             </div>
             <div class="input-field">
                 <label>Achievements</label><br>
-                <textarea id="achievements" name="achievements" rows="5" cols="90"></textarea>
+                <textarea id="achievements" name="achievements" placeholder="Enter your achievements(seperate by ',')" rows="5" cols="90"></textarea>
             </div>
             <input type="submit" value="Register">
         </form>       

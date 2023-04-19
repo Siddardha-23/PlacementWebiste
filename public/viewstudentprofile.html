@@ -48,7 +48,7 @@
 <!-- partial:index.partial.html -->
 <nav class="navbar navbar-expand-md  bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px">Training and Placement Cell</a>
+    <a class="navbar-brand" href="/viewnotifications"><img src="../css/Jntuk-logo.png" width="60px" height="50px"> UCEK Training and Placement Cell</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -264,24 +264,38 @@
               <div class="input-field">
                 <label>No of backlogs</label>
                 <input type="number" name="backlogs" id="backlogs"
-                    placeholder="Enter no of backlogs" value="{{users.backlogs}}" minlength="1" required>
+                    placeholder="Enter no of backlogs" value="{{users.backlogs}}" minlength="1" required readonly>
                 <div class="underline"></div>
               </div>
+
+              <div class="input-field">
+                <label>Companies Placed</label>
+                <input type="number" name="noofcompaniesplaced" id="noofcompaniesplaced"
+                    placeholder="Enter no of companies placed" value="{{users.noofcompaniesplaced}}" minlength="1" required readonly>
+                <div class="underline"></div>
+            </div>
+  
+            <div class="input-field">
+              <label>Names of Companies</label>
+                <input type="text" name="namesofcompanies" id="namesofcompanies"
+                    placeholder="Enter names of placed companies(NA if not placed) " value="namesofcompanies" minlength="1"  required readonly>
+                <div class="underline"></div>
+            </div>
 
           <label style="font-weight: bolder;margin-top: 20px;">Personal Details:</label>
             <div class="input-field">
               <label>Profile Picture</label><br>
-              <a href="uploads/{{ users.profile }}">profile</a>
+              <a href="uploads/{{ users.profile }}" style="font-size: medium;">profile</a>
               <div class="underline"></div>
             </div>
             <div class="input-field">
                 <label>Resume</label><br>
-                <a href="uploads/{{ users.resume }}">resume</a>
+                <a href="uploads/{{ users.resume }}" style="font-size: medium;">resume</a>
                 <div class="underline"></div>
             </div>
             <div class="input-field">
                 <label>Offer Letter</label><br>
-                <a href="uploads/{{ users.offerletter }}">offer letter</a>
+                <a href="uploads/{{ users.offerletter }}" style="font-size: medium;">offer letter</a>
                 <div class="underline"></div>
             </div>
             <div class="input-field">
@@ -304,7 +318,7 @@
             </div>
             <div class="input-field">
                 <label>Achievements</label><br>
-                <textarea id="achievements" name="achievements"  rows="4" cols="90" required readonly>{{users.achievements}}</textarea>
+                <textarea id="achievements" name="achievements" placeholder="Enter your achievements(seperate by ',')" rows="4" cols="90" required readonly>{{users.achievements}}</textarea>
             </div>            
         </form>     
     </main>
