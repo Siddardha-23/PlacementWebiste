@@ -118,48 +118,48 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/tpodisplayquery"><img src="../css/Jntuk-logo.png" width="60px" height="50px">UCEK Training and Placement Cell</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"  style="color: white;" href="/tpodisplayquery">view Queries</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Student            
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/tpoaddselected">Add selected students</a></li>
-                  <li><a class="dropdown-item" href="/tpoaddnotification">Notify Students</a></li>
-                  <li><a class="dropdown-item" href="/tpodocuments">view student docs</a></li>              
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tporesumedownload">Resume </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpofilter"> Filter</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpoaddcompany">Add Company</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpodisplaycompany"> Company details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tpoaddpc"> Add PC</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/"onclick="myFunction();"> Logout</a>
-              </li>              
-            </ul>       
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/tpodisplayquery"><img src="../css/Jntuk-logo.png" width="60px" height="50px">UCEK Training and Placement Cell</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"  style="color: white;" href="/tpodisplayquery">view Queries</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="font-size: 1rem;"> Student            
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/tpoaddselected">Add selected students</a></li>
+              <li><a class="dropdown-item" href="/tpoaddnotification">Notify Students</a></li>
+              <li><a class="dropdown-item" href="/tpodocuments">view student docs</a></li>              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tporesumedownload">Resume </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tpofilter"> Filter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tpoaddcompany">Add Company</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tpodisplaycompany"> Company details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tpoaddpc"> Add PC</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/"onclick="myFunction();"> Logout</a>
+          </li>              
+        </ul>       
+      </div>
+    </div>
+  </nav>
   <br>
   <div class="filter-options">
     <label for="branch">Branch:</label>
@@ -267,15 +267,15 @@
 
     function download() {
       if (temp && temp.length) {
-        const headers = ["Name", "Gender", "Course", "Email", "Phone", "10th GPA", "12th GPA", "CGPA"];
-        const dataToDownload = [headers].concat(temp.map(({ name, gender, course, email, phone, gpa10, gpa12, cgpa }) => ([name, gender, course, email, phone, gpa10, gpa12, cgpa])));
+        const headers = ["Name", "Gender", "Course", "Email", "Phone", "10th GPA", "12th GPA", "CGPA","Address"];
+        const dataToDownload = [headers].concat(temp.map(({ name, gender, course, email, phone, gpa10, gpa12, cgpa ,address}) => ([name, gender, course, email, phone, gpa10, gpa12, cgpa, address])));
 
         const csvContent = "data:text/csv;charset=utf-8," + dataToDownload.map(e => e.join(",")).join("\n");
 
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
         link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "student_data_with_headers.csv");
+        link.setAttribute("download", "student_data.csv");
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

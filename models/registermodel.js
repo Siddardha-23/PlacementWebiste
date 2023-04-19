@@ -58,6 +58,10 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    intertype: {
+        type: String,
+        required: true,
+    },
     gpa12: {
         type: Number,
         required: true,

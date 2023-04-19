@@ -50,8 +50,9 @@ router.get('/',(req,res)=>{
   });
 
 
-router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
+router.post("/", upload.fields([{ name: "profile", maxCount: 1 },{ name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
     try {
+      console.log(req.body)
       const test = await User.findOne({ username: req.body.username });
       if (test) {
         var temp = req.body.username.concat("  Registration number already exists");
@@ -64,13 +65,18 @@ router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerl
         const gender = req.body.gender;
         const phone = req.body.phone;
         const email = req.body.email;
-        const language = req.body.language;
+        const languages = req.body.language;
         const course = req.body.course;
         const branch = req.body.branch;
         const dob = req.body.dob;
         const achievements = req.body.achievements;
         const gpa10 = req.body.gpa10;
         const gpa12 = req.body.gpa12;
+        const cgpa =req.body.cgpa;
+        const schoool =req.body.school
+        const intercollege =req.body.inter
+        const certifications =req.body.certifications
+        const skills =req.body.skills
         const ug1 = req.body.ug1;
         const ug2 = req.body.ug2;
         const ug3 = req.body.ug3;
@@ -81,13 +87,20 @@ router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerl
         const ug8 = req.body.ug8;
         const backlogs = req.body.backlogs;
         const noofcompaniesplaced =req.body.noofcompaniesplaced
-        const namesofcompanies = req.body.namesofcompanies
+        const namesofcompaniesplaced = req.body.namesofcompanies
         const HighestPackage = req.body.HighestPackage
-     
+        const intertype =req.body.intertype
+        const address =req.body.address
+        const projects =req.body.project
       console.log(req.body);
 
     var resume="";
     var offerletter="";
+    var profile="";
+    if(req.files["profile"][0].filename){
+      profile = req.files["profile"][0].filename;
+    }
+      
    if(req.files["resume"][0].filename){
      resume = req.files["resume"][0].filename;
    }
@@ -98,8 +111,8 @@ router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerl
      
    
   
-      const user = new User({ name,username,gender,password,phone,email,language,course,branch,dob,achievements,gpa10,gpa12,
-        backlogs,resume, offerletter,noofcompaniesplaced,namesofcompanies,HighestPackage });
+      const user = new User({ name,username,gender,password,phone,dob,email,languages,course,branch,gpa10,intertype,gpa12,cgpa,address,
+        backlogs,noofcompaniesplaced,namesofcompaniesplaced,schoool,intercollege,achievements,certifications,skills,projects,resume,profile, offerletter,HighestPackage });
       await user.save();
       res.clearCookie('pc');
       res.clearCookie('tpo');

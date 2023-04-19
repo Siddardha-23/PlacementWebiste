@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const bodyParser=require('body-parser');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 const router = express.Router();
 app.set('view engine', 'ejs');
@@ -11,7 +11,7 @@ mongoose.connect('mongodb+srv://sarathkumar170901:RVE0ZLypkMaME1Hq@cluster0.4da1
   useNewUrlParser: true,
   useUnifiedTopology: true,
   bufferCommands: false,
-});
+}); 
 
 const CompanySchema = new mongoose.Schema({
     companyname:{
