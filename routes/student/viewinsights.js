@@ -19,7 +19,10 @@ router.get('/',(req,res)=>{
   if(!myCookie){
       res.send("switch to student account");
       return;
-    }
+    }  
+        
+})
+router.post('/',(req,res)=>{
 
     Interview.find({company:req.body.company})
         .toArray((err,documents) => {
@@ -27,7 +30,7 @@ router.get('/',(req,res)=>{
             ejs.renderFile(path.join(__dirname,'../../views/viewinsights.ejs'),{
                 experiences:documents
             }
-            )})       
-        
+            )})     
+
 })
   module.exports = router;
