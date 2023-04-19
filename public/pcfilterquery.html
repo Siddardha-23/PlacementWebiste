@@ -175,8 +175,15 @@
       <option value="B.Tech">B.Tech</option>
       <option value="M.Tech">M.Tech</option>
     </select>
+    
     <label for="gpa10">10thGPA:</label>
     <input type="text" name="gpa10" id="gpa10">
+    <label for="Inter/Diploma">Inter/Diploma:</label>
+    <select id="intertype">
+      <option value="null">All</option>
+      <option value="Inter">Inter</option>
+      <option value="Diploma">Diploma</option>
+    </select>
     <label for="gpa12">Inter/Diploma GPA:</label>
     <input type="text" name="gpa12" id="gpa12">
     <label for="cgpa">CGPA:</label>
@@ -212,6 +219,7 @@
     var course=document.getElementById("course").value;
     var branch=document.getElementById("branch").value;
     var gpa10=document.getElementById("gpa10").value;
+    var intertype=document.getElementById("intertype").value;
     var gpa12=document.getElementById("gpa12").value;
     if(cgpa==""){
       cgpa="0";
@@ -224,7 +232,7 @@
     }
   
     console.log(cgpa,gender,course,branch,gpa10,gpa12);
-            fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + gpa10 + "/" +gpa12 + "/" + cgpa +"/").then(function (data) {
+            fetch("/filter/"+ branch + "/" +gender + "/" + course + "/" + gpa10 + "/" + intertype + "/" + gpa12 + "/" + cgpa +"/").then(function (data) {
                 data.json().then(function (temp1) {
                     console.log(temp1);
                     temp=temp1;
