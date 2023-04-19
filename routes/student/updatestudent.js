@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     cb(null, "./uploads");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
+    cb(null, req.body.username + "_" + file.originalname);
   },
 });
 
@@ -83,6 +83,7 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
         "course": req.body.course,
         "backloghistory": req.body.backlogHistory,
         "backlogs": req.body.backlogs,
+        "languages":req.body.language,
         "dob": req.body.dob,
         "resume": req.body.resume,
         "offerletter": req.body.offerletter,
@@ -93,7 +94,10 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
         "schoool": req.body.school,
         "intercollege": req.body.inter,
         "profile": req.body.profile,
-        "achievements": req.body.achievements
+        "achievements": req.body.achievements,
+        "noofcompaniesplaced": req.body.noofcompaniesplaced,
+        "namesofcompanies": req.body.namesofcompanies,
+        "HighestPackage": req.body.HighestPackage
       }
     }, { new: true }).then(result => {
       console.log(result)
