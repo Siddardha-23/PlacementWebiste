@@ -10,7 +10,7 @@ const app = express();
 
 //app.use(express,bodyParser.urlencoded({extended:false}))
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json);
+
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 //app.use(bodyParser.urlencoded({ extended: true }));
