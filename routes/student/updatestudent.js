@@ -85,6 +85,7 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
         "backlogs": req.body.backlogs,
         "languages":req.body.language,
         "dob": req.body.dob,
+        "intertype":req.body.intertype,
         "resume": req.body.resume,
         "offerletter": req.body.offerletter,
         "skills": req.body.skills,
