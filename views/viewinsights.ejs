@@ -74,7 +74,22 @@
           </div>
         </div>
       </nav>
-  <h1>Interview Experiences</h1><!--
+  <h1>Interview Experiences</h1>
+  <div class="input-field">
+    <label for="branch">Select a department</label><br>
+    <select id="branch" name="branch" required>
+    <option value="" disabled selected>-- Select your branch --</option>
+    <option value="CSE">CSE</option>
+    <option value="ECE">ECE</option>
+    <option value="EEE">EEE</option>
+    <option value="MECH">MECH</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="PET">PE</option>
+    <option value="CHEM">CHE</option>
+    </select>
+
+</div>
+  <!--
   <% if (experiences.length === 0) { %>
     <p>No interview experiences have been shared yet.</p>
   <% } else { %>
