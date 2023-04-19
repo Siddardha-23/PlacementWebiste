@@ -182,7 +182,7 @@
               <div class="input-field">
                 <label>School Name</label>
                 <input type="text" name="school" id="school"
-                    placeholder="Enter Your school name" value="{{users.school}}" minlength="1"  required>
+                    placeholder="Enter Your school name" value="{{users.schoool}}" minlength="1"  required>
                 <div class="underline"></div>
             </div>
 
@@ -296,7 +296,7 @@
           <label style="font-weight: bolder;margin-top: 20px;">Personal Details</label>
           <div class="input-field">
             <label>Profile Picture</label><br>
-            <a href="uploads/{{ users.profile }}" style="font-size: medium;">profile</a>
+            <a href="uploads/{{ users.profile }}" style="font-size: medium;">{{users.profile}}</a>
             <div class="underline"></div>
         </div>
           <div class="input-field">
@@ -307,7 +307,7 @@
 
           <div class="input-field">
             <label>Resume</label><br>
-            <a href="uploads/{{ users.resume }}" style="font-size: medium;">resume</a>
+            <a href="uploads/{{ users.resume }}" style="font-size: medium;">{{users.resume}}</a>
             <div class="underline"></div>
         </div>
             <div class="input-field">
@@ -318,7 +318,7 @@
             
             <div class="input-field">
                 <label>Offer Letter</label><br>
-                <a href="uploads/{{ users.offerletter }}" style="font-size: medium;">offer letter</a>
+                <a href="uploads/{{ users.offerletter }}" style="font-size: medium;">{{users.offerletter}}</a>
                 <div class="underline"></div>
             </div>
             <div class="input-field">

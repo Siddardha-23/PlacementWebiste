@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       cb(null, "./uploads");
     },
     filename: function (req, file, cb) {
-      cb(null, Date.now() + "-" + file.originalname);
+      cb(null, req.body.username + "_" + file.originalname);
     },
   });
   
@@ -80,6 +80,9 @@ router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerl
         const ug7 = req.body.ug7;
         const ug8 = req.body.ug8;
         const backlogs = req.body.backlogs;
+        const noofcompaniesplaced =req.body.noofcompaniesplaced
+        const namesofcompanies = req.body.namesofcompanies
+        const HighestPackage = req.body.HighestPackage
      
       console.log(req.body);
 
@@ -95,7 +98,8 @@ router.post("/", upload.fields([{ name: "resume", maxCount: 1 }, { name: "offerl
      
    
   
-      const user = new User({ name,username,gender,password,phone,email,language,course,branch,dob,achievements,gpa10,gpa12,ug1,ug2,ug3,ug4,ug5,ug6,ug7,ug8,backlogs,resume, offerletter });
+      const user = new User({ name,username,gender,password,phone,email,language,course,branch,dob,achievements,gpa10,gpa12,
+        backlogs,resume, offerletter,noofcompaniesplaced,namesofcompanies,HighestPackage });
       await user.save();
       res.clearCookie('pc');
       res.clearCookie('tpo');
