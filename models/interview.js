@@ -50,5 +50,4 @@ const Interview = new mongoose.model('interview', interviewSchema);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-module.exports = Interview;
+module.exports = mongoose.model('interview', interviewSchema);
