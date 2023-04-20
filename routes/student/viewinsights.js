@@ -16,42 +16,42 @@ const Interview =require('../../models/interview')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-router.get('/',async (req,res)=>{
-    mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-      console.log('Connected to database');
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    } 
-    const docs =[]
-    // Interview.find({},(err,data)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }
-    //     else{
-    //         console.log(data);
-    //     }
-    // })
-    try{
-        const data=await Interview.find({});
+// router.get('/',async (req,res)=>{
+//     mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => {
+//       console.log('Connected to database');
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+//   const myCookie = req.cookies.user;
+//   if(!myCookie){
+//       res.send("switch to student account");
+//       return;
+//     } 
+//     const docs =[]
+//     // Interview.find({},(err,data)=>{
+//     //     if(err){
+//     //         console.log(err);
+//     //     }
+//     //     else{
+//     //         console.log(data);
+//     //     }
+//     // })
+//     try{
+//         const data=await Interview.find({});
 
-    }
-    catch(err){
-        console.log(err);
-    }
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
         
 
         // documents.forEach((doc)=>{
         //     console.log(doc)
         //     docs.push(doc)
         // })
-     })//;((err,docs)=>{
+     //;((err,docs)=>{
     //     console.log(docs)
     //     
     // }
