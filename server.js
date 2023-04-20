@@ -29,8 +29,8 @@ app.use('/changepassword', CpRouter);
 const Share = require('./routes/student/shareexperience');
 app.use('/shareexperience', Share);
 
-// const View = require('./routes/student/viewinsights')
-// app.use('/viewinsights', View);
+const View = require('./routes/student/viewinsights')
+app.use('/viewinsights', View);
 
 
 // const FpRouter = require('./routes/student/forgotpassword');
@@ -358,25 +358,25 @@ app.get('/dc', (req, res) => {
 
 });
 
-app.get('/viewinsights', (req, res) => {
+// app.get('/viewinsights', (req, res) => {
 
-  const myCookie = req.cookies.user;
-  if (!myCookie) {
-    res.send("switch to student account");
-    return;
-  }
+//   const myCookie = req.cookies.user;
+//   if (!myCookie) {
+//     res.send("switch to student account");
+//     return;
+//   }
 
-  Interview.find({})
-    .then(users => {
+//   Interview.find({})
+//     .then(users => {
 
-      res.json(users);
-      // res.render(path.join(__dirname,'../../views/viewinsights.ejs'),{experiences:docs})
-    })
-    .catch(err => {
-      console.error(err);
-    });
+//       res.json(users);
+//       // res.render(path.join(__dirname,'../../views/viewinsights.ejs'),{experiences:docs})
+//     })
+//     .catch(err => {
+//       console.error(err);
+//     });
 
-});
+// });
 
 //view notifications student
 app.get('/nc', (req, res) => {
