@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
+router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 }]), async (req, res) => {
   try {
 
     if (req.files["profile"]) {
@@ -57,10 +57,10 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
       //  user.resume=resume;
       req.body.resume = req.files["resume"][0].filename;
     }
-    if (req.files["offerletter"]) {
-      req.body.offerletter = req.files["offerletter"][0].filename;
+    // if (req.files["offerletter"]) {
+    //   req.body.offerletter = req.files["offerletter"][0].filename;
 
-    }
+    // }
 
     //  if(req.body.dob){
     //      user.dob = req.body.dob;
