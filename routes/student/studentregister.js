@@ -49,7 +49,11 @@ router.get('/', (req, res) => {
 });
 
 
+<<<<<<< HEAD
 router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 }]), async (req, res) => {
+=======
+router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 }, { name: "offerletter", maxCount: 1 }]), async (req, res) => {
+>>>>>>> 2031e3fc73dbcd5d253c688a9f7c13fcd0440191
   try {
     console.log(req.body)
     const test = await User.findOne({ username: req.body.username });
@@ -91,10 +95,17 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
     const intertype = req.body.intertype
     const address = req.body.address
     const projects = req.body.project
+<<<<<<< HEAD
     const offerletter = req.body.offerletter
     console.log(req.body);
 
     var resume = "";
+=======
+    console.log(req.body);
+
+    var resume = "";
+    var offerletter = [];
+>>>>>>> 2031e3fc73dbcd5d253c688a9f7c13fcd0440191
     var profile = "";
     if (req.files["profile"][0].filename) {
       profile = req.files["profile"][0].filename;
@@ -104,9 +115,15 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
       resume = req.files["resume"][0].filename;
     }
 
+<<<<<<< HEAD
     //  if(req.files["offerletter"][0].filename){
     //   offerletter = req.files["offerletter"][0].filename;
     //  }
+=======
+    if (req.files["offerletter"][0].filename) {
+      offerletter.push(req.files["offerletter"][0].filename);
+    }
+>>>>>>> 2031e3fc73dbcd5d253c688a9f7c13fcd0440191
 
 
 
