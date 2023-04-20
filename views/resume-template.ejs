@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+   
   <!-- FONTS -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
@@ -14,36 +17,28 @@
       box-sizing: border-box;
       transition: 0.35s ease;
     }
-
+    body{
+      width:70%;
+      margin-left: 10%;
+    }
     .rela-block {
       display: block;
       position: relative;
       margin: auto;
-      /*top: ;
-  left: ;
-  right: ;
-  bottom: ;*/
     }
 
     .rela-inline {
       display: inline-block;
       position: relative;
       margin: auto;
-      /*top: ;
-  left: ;
-  right: ;
-  bottom: ;*/
+      
     }
 
     .floated {
       display: inline-block;
       position: relative;
       margin: false;
-      /*top: ;
-  left: ;
-  right: ;
-  bottom: ;*/
-      float: left;
+      
     }
 
     .abs-center {
@@ -207,6 +202,8 @@
       line-height: 20px;
       margin: 23px auto;
       border-bottom: 1px solid #888;
+      position: relative;
+      
     }
 
     .list-thing {
@@ -284,7 +281,6 @@
 </head>
 
 <body>
-  <!-- PAGE STUFF -->
   <div class="rela-block page">
     <div class="rela-block top-bar">
       <div class="caps name  ">
@@ -294,15 +290,8 @@
       </div>
     </div>
     <div class="side-bar">
-
-
       <div class="mugshot">
-        <img src="<%= data.profile%>" alt="profile pic">
-        <div class="logo">
-          <svg viewbox="0 0 80 80" class="rela-block logo-svg">
-            <circle cx="40" cy="40" r="32" stroke-width="2" fill="none" />
-          </svg>
-        </div>
+        <img src="<%= data.profile%>" alt="profile pic" width="200px" height="200px" class="rounded-circle border border-4 border-radius">       
       </div>
       <p class="rela-block caps side-header">Contact</p>
       <p><b>Phone:</b>
@@ -314,7 +303,6 @@
       <p><b>Address:</b>
         <%= data.address%>
       </p>
-
       <p class="rela-block caps side-header">Skills</p>
       <% var skillsArr=data.skills.split(","); %>
         <% for (var i=0; i < skillsArr.length; i++) { %>
@@ -322,7 +310,6 @@
             <%= skillsArr[i] %>
           </p>
           <% } %>
-
             <p class="rela-block caps side-header">Certifications</p>
             <% var certifiArr=data.certifications.split(","); %>
               <% for (var i=0; i < certifiArr.length; i++) { %>
@@ -330,7 +317,6 @@
                   <%= certifiArr[i] %>
                 </p>
                 <% } %>
-
                   <p class="rela-block caps side-header">Languages</p>
                   <% var langArr=data.languages.split(","); %>
                     <% for (var i=0; i < langArr.length; i++) { %>
@@ -338,13 +324,8 @@
                         <%= langArr[i] %>
                       </p>
                       <% } %>
-
-
-
-
     </div>
     <div class="rela-block content-container">
-
       <div class="rela-block caps greyed">Objective</div>
       <p class="long-margin" style="text-align: justify;">
         An enthusiastic and hardworking B.Tech graduate seeking a challenging role in a dynamic organization where I can
@@ -380,7 +361,6 @@
           </p>
         </li>
       </ul>
-
       <div class="rela-block caps greyed">Projects</div>
       <% var proArr=data.projects.split(","); %>
         <% for (var i=0; i < proArr.length; i++) { %>
@@ -388,9 +368,6 @@
             <%= proArr[i] %>
           </p>
           <% } %>
-
-
-
             <div class="rela-block caps greyed">Achievements/Awards</div>
             <% var achiArr=data.achievements.split(","); %>
               <% for (var i=0; i < achiArr.length; i++) { %>

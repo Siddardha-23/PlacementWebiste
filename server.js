@@ -9,14 +9,12 @@ var cookieParser = require('cookie-parser');
 const app = express();
   
 const MyModel =require('./models/interview')
-//app.use(express,bodyParser.urlencoded({extended:false}))
 app.use(express.urlencoded({ extended: true }));
-
 app.use(cookieParser());
 app.set('view engine', 'ejs');
-//app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/css', express.static("css"));
 const path = require('path');
+
 //routes import 
 const StudentloginRouter = require('./routes/student/studentlogin');
 app.use('/studentlogin', StudentloginRouter);
@@ -30,13 +28,6 @@ app.use('/changepassword', CpRouter);
 const Share = require('./routes/student/shareexperience');
 app.use('/shareexperience', Share);
 
-// const View = require('./routes/student/viewinsights')
-// app.use('/viewinsights', View);
-
-
-// const FpRouter = require('./routes/student/forgotpassword');
-// app.use('/forgotpassword', FpRouter);
-
 const AqRouter = require('./routes/student/addquery');
 app.use('/addquery', AqRouter);
 
@@ -48,7 +39,6 @@ app.use('/epstudent', EpRouter);
 
 const SuRouter = require('./routes/student/updatestudent');
 app.use('/updatestudent', SuRouter);
-
 
 const ResponseRouter = require('./routes/student/displayresponse');
 app.use('/displayresponse', ResponseRouter);
@@ -210,6 +200,27 @@ app.get('/use-cookie', (req, res) => {
   res.redirect('/studentaq');
 });
 
+app.get('/shareexperience', (req, res) => {
+  res.render("shareexperience");
+})
+app.post('/shareexperience', async (req, res) => {
+  try {
+    console.log(req.body)
+    const username = req.body.username;
+    const name = req.body.name;
+    const jobrole = req.body.jobrole;
+    const company = req.body.company
+    const salary = req.body.salary
+    const experiences = req.body.experiences
+    const suggestions = req.body.suggestions
+    const interview = new Interview({ name, username, company, jobrole, salary, experiences, suggestions });
+    await interview.save();
+    res.render('shareexperience', { message: "Shared Succesfully" });
+  }
+  catch (error) {
+    res.status(400).send(error);
+  }
+})
 
 app.get('/studentaq', (req, res) => {
   const myCookie = req.cookies.user;
