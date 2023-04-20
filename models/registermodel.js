@@ -148,7 +148,8 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     offerletter: {
-        type: String,
+        type: [String],
+        default: []
     },
     
 });
