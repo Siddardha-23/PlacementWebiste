@@ -199,27 +199,6 @@ app.get('/use-cookie', (req, res) => {
   res.redirect('/studentaq');
 });
 
-app.get('/shareexperience', (req, res) => {
-  res.render("shareexperience");
-})
-app.post('/shareexperience', async (req, res) => {
-  try {
-    console.log(req.body)
-    const username = req.body.username;
-    const name = req.body.name;
-    const jobrole = req.body.jobrole;
-    const company = req.body.company
-    const salary = req.body.salary
-    const experiences = req.body.experiences
-    const suggestions = req.body.suggestions
-    const interview = new Interview({ name, username, company, jobrole, salary, experiences, suggestions });
-    await interview.save();
-    res.render('shareexperience', { message: "Shared Succesfully" });
-  }
-  catch (error) {
-    res.status(400).send(error);
-  }
-})
 
 app.get('/studentaq', (req, res) => {
   const myCookie = req.cookies.user;
