@@ -91,19 +91,6 @@
   <% } else { %>
     <% experiences.forEach((experience) => { %>
       <div>
-<<<<<<< HEAD
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                
-              <h5 class="card-title">Interview Experience </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary"><%= experience.company%></h6>
-              <h2><%= experience.name %></h2>
-              <p>Roll Number: <%= experience.roll %></p>
-              <p>Company: <%= experience.company %></p>
-              <p>Job Role: <%= experience.jobrole %></p>
-              <p>Package Offered: <%= experience.salary %></p>
-              <p><%= experience.experiences %></p>
-=======
         <div class="card" style="width: 20rem;">
             <div class="card-body">            
               <h2 style="text-align: center;padding-bottom: 2%;"><%= experience.name %></h2>
@@ -113,7 +100,6 @@
               <p><strong>Package Offered:</strong> <%= experience.salary %></p>
               <p><strong>Experiences:</strong></p>
               <p></p><%= experience.experiences %></p>
->>>>>>> 2031e3fc73dbcd5d253c688a9f7c13fcd0440191
               <% if (experience.suggestions) { %>
                 <p><strong>Suggestions:</strong> <%= experience.suggestions %></p>
               <% } %>

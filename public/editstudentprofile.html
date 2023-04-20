@@ -261,7 +261,7 @@
 
           <div class="input-field">
             <label>Resume</label><br>
-            <a href="uploads/{{ users.resume }}" style="font-size: medium;">{{users.resume}}</a>
+            <a href="uploads/{{ users.resume[0] }}" style="font-size: medium;">{{users.resume}}</a>
             <div class="underline"></div>
         </div>
             <div class="input-field">
@@ -269,23 +269,17 @@
                 <input type="file" name="resume" id="resume" accept="application/pdf" >
                 <div class="underline"></div>
             </div>
-
-            <div class="input-field">
-              <label>Offer Letter</label><br>
-              <input type="text" name="offerletter" placeholder="create offer letters drive link" id="offerletter" accept="application/pdf">
-              <div class="underline"></div>
-          </div>
             
-            <!-- <div class="input-field">
+            <div class="input-field">
                 <label>Offer Letter</label><br>
-                <a href="uploads/{{ users.offerletter }}" style="font-size: medium;">{{users.offerletter}}</a>
+                <a href="uploads/{{ users.offerletter[0] }}" style="font-size: medium;">{{users.offerletter}}</a>
                 <div class="underline"></div>
-            </div> -->
-            <!-- <div class="input-field">
+            </div> 
+            <div class="input-field">
                 <label>Upload New Offer Letter</label><br>
                 <input type="file" name="offerletter" id="offerletter" accept="application/pdf">
                 <div class="underline"></div>
-            </div> -->
+            </div> 
 
             <div class="input-field">
               <label>Certifications</label><br>

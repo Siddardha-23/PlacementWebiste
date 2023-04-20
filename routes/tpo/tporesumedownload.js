@@ -5,11 +5,14 @@ const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const ejs = require('ejs')
-const pdf =require('html-pdf')
+const pdf = require('html-pdf')
 const path = require('path')
 const router = express.Router();
 app.set('view engine', 'ejs');
-app.set('views',path.join('../../','views'))
+app.set('views', path.join('../../', 'views'))
+
+const puppeteer = require('puppeteer')
+const fs = require('fs')
 
 
 const { User } = require('../../models/registermodel');
@@ -29,33 +32,37 @@ router.post('/', (req, res) => {
     const username = req.body.username
     console.log(username)
     User.findOne({ username: username })
-        .then((user) => {
+        .then(async (user) => {
             const username = user.username
-            const profilepic = "../uploads/" + user.profile 
-            user.profile = profilepic 
-            console.log(user.profile,profilepic) 
-            ejs.renderFile(path.join(__dirname,'../../views/resume-template.ejs'),{
-                data:user
-            },(err,html)=>{
-                if(err){
-                    console.log(err) 
-                }else{
-                    pdf.create(html).toStream((err,stream)=>{
-                        if(err){
-                            console.log(err) 
-                        }
-                        else{
-                            res.setHeader('Content-Type','application/pdf')
-                            stream.pipe(res)
-                        }
-                    })
-                }
+            const profilepic = "../uploads/" + user.profile
+            user.profile = profilepic
+            // const filepath = path.resolve(__dirname, '../../views/resume-template.ejs')
+            // const template = fs.readFileSync(filepath, 'utf-8')
+            // const data = user
+            // const html = ejs.render(template, data)
+            // const browser = await puppeteer.launch()
+            // const page = await browser.newPage()
+            // await page.setContent(html)
+            // await page.pdf({ format: 'A4' })
+            // await browser.close()
+
+            res.render(path.join(__dirname, '../../views/resume-template.ejs'), {
+                data: user
+                // },(err,html)=>{
+                //     if(err){
+                //         console.log(err) 
+                //     }else{
+                //         pdf.create(html).toStream((err,stream)=>{
+                //             if(err){
+                //                 console.log(err) 
+                //             }
+                //             else{
+                //                 res.setHeader('Content-Type','application/pdf')
+                //                 stream.pipe(res)
+                //             }
+                //         })
+                //     }
             })
-            // res.clearCookie('pc');
-            // res.clearCookie('tpo');
-            // res.clearCookie('user');
-            // res.cookie('user', user.username);
-            // res.redirect('/use-cookie');
         })
         .catch((err) => {
             console.log(err);
