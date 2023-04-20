@@ -29,8 +29,8 @@ app.use('/changepassword', CpRouter);
 const Share = require('./routes/student/shareexperience');
 app.use('/shareexperience', Share);
 
-const View = require('./routes/student/viewinsights')
-app.use('/viewinsights', View);
+// const View = require('./routes/student/viewinsights')
+// app.use('/viewinsights', View);
 
 
 // const FpRouter = require('./routes/student/forgotpassword');
@@ -336,6 +336,7 @@ const { User } = require('./models/registermodel');
 const { Respo } = require('./models/responsemodel');
 const { Selected } = require('./models/selectedmodel');
 const { Query } = require('./models/querymodel');
+const {Interview } =require('./models/interview')
 
 //viewcompanies student
 app.get('/dc', (req, res) => {
@@ -350,6 +351,26 @@ app.get('/dc', (req, res) => {
     .then(users => {
 
       res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+
+});
+
+app.get('/viewinsights', (req, res) => {
+
+  const myCookie = req.cookies.user;
+  if (!myCookie) {
+    res.send("switch to student account");
+    return;
+  }
+
+  Interview.find({})
+    .then(users => {
+
+      res.json(users);
+      // res.render(path.join(__dirname,'../../views/viewinsights.ejs'),{experiences:docs})
     })
     .catch(err => {
       console.error(err);
