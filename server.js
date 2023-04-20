@@ -135,7 +135,7 @@ app.get('/tpologout', (req, res) => {
     return;
   }
   res.clearCookie('tpo');
-  res.render('tpologin', { errorMessage: "" });
+  res.render('main', { errorMessage: "" });
 });
 //pc middleware
 app.get('/use-pccookie', (req, res) => {
@@ -165,7 +165,7 @@ app.get('/pclogout', (req, res) => {
     return;
   }
   res.clearCookie('pc');
-  res.render('pclogin', { errorMessage: "" });
+  res.render('main', { errorMessage: "" });
 });
 
 //student middleware
@@ -231,25 +231,6 @@ app.get('/studentaq', (req, res) => {
   res.render('studentaq', { message: '' });
 })
 
-/*app.get('/shareexperience',(req,res)=>{
-  const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
-  res.render('/shareexperience',{message:''});
-})
-
-app.get('/viewinsights',(req,res)=>{
-  const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
-  res.render('/viewinsights',{message:''});
-})*/
-
-
 
 
 
@@ -261,7 +242,7 @@ app.get('/logout', (req, res) => {
     return;
   }
   res.clearCookie('user');
-  res.redirect('/student');
+  res.redirect('/main');
 });
 
 app.get('/studentcp', (req, res) => {

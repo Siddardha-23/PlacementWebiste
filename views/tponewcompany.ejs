@@ -34,12 +34,7 @@
         box-shadow: none;
         }
   </style>
-   <script>
-    function myFunction()
-    {
-      document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-    }
-</script>
+   
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
@@ -78,7 +73,7 @@
                 <a class="nav-link" href="/tpoaddpc"> Add PC</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/"onclick="myFunction();"> Logout</a>
+                <a class="nav-link" href="/" > Logout</a>
               </li>              
             </ul>       
           </div>

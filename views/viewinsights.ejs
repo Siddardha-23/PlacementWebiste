@@ -28,13 +28,7 @@
     
     </style>
     </head>
-    
-    <script>
-    function myFunction()
-    {
-    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-    }
-    </script>
+   
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="background: linear-gradient(45deg, #8e2de2, #4a00e0);">
@@ -78,7 +72,7 @@
                   <li><a class="dropdown-item" href="/editstudentprofile">Edit Profile</a></li>
                   <li><a class="dropdown-item" href="/studentcp">Change Password</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/" onclick="myFunction();">Logout</a></li>
+                  <li><a class="dropdown-item" href="/" >Logout</a></li>
                 </ul>
               </li>
               <li><pre> </pre></li>
