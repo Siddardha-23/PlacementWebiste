@@ -7,7 +7,8 @@ const multer = require("multer");
 var cookieParser = require('cookie-parser');
 
 const app = express();
-
+  
+const MyModel =require('./models/interview')
 //app.use(express,bodyParser.urlencoded({extended:false}))
 app.use(express.urlencoded({ extended: true }));
 
@@ -29,8 +30,8 @@ app.use('/changepassword', CpRouter);
 const Share = require('./routes/student/shareexperience');
 app.use('/shareexperience', Share);
 
-const View = require('./routes/student/viewinsights')
-app.use('/viewinsights', View);
+// const View = require('./routes/student/viewinsights')
+// app.use('/viewinsights', View);
 
 
 // const FpRouter = require('./routes/student/forgotpassword');
@@ -157,6 +158,16 @@ app.get('/use-pccookie', (req, res) => {
   res.redirect('/pcdisplayquery');
 });
 
+app.get('/viewinsights',async (req,res)=>{
+  try {
+    const data = await MyModel.find();
+    console.log(data);
+    res.render('viewinsights',{experiences:data})
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+})
 app.get('/pclogout', (req, res) => {
   const myCookie = req.cookies.pc;
   if (!myCookie) {
@@ -315,7 +326,6 @@ const { User } = require('./models/registermodel');
 const { Respo } = require('./models/responsemodel');
 const { Selected } = require('./models/selectedmodel');
 const { Query } = require('./models/querymodel');
-const {Interview } =require('./models/interview')
 
 //viewcompanies student
 app.get('/dc', (req, res) => {
