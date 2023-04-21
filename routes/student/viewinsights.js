@@ -1,11 +1,7 @@
 const express = require('express');
 const app = express();
-<<<<<<< HEAD
 const MongoClient=require('mongodb').MongoClient;
 const mongoose = require('mongoose');
-=======
-// const mongoose = require('mongoose');
->>>>>>> 0ad009cc93bac5f598f3c2a74dcbbd3216bc8e22
 const bcrypt = require('bcrypt');
 const bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -48,7 +44,6 @@ app.use(cookieParser());
 //     try{
 //         const data=await Interview.find({});
 
-<<<<<<< HEAD
   const myCookie = req.cookies.user;
   if(!myCookie){
       res.send("switch to student account");
@@ -61,13 +56,6 @@ app.use(cookieParser());
         }
     })
     // result = client['jntuk']['interviews'].find({})
-=======
-//     }
-//     catch(err){
-//         console.log(err);
-//     }
-        
->>>>>>> 0ad009cc93bac5f598f3c2a74dcbbd3216bc8e22
 
         // documents.forEach((doc)=>{
         //     console.log(doc)
@@ -82,11 +70,6 @@ app.use(cookieParser());
    
     
     // res.render(path.join(__dirname,'../../views/viewinsights.ejs')) 
-<<<<<<< HEAD
-=======
-        
-
->>>>>>> 0ad009cc93bac5f598f3c2a74dcbbd3216bc8e22
 router.post('/', (req,res)=>{
 
     console.log(req.body)

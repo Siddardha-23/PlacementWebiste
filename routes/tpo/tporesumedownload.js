@@ -48,20 +48,20 @@ router.post('/', (req, res) => {
 
             res.render(path.join(__dirname, '../../views/resume-template.ejs'), {
                 data: user
-                // },(err,html)=>{
-                //     if(err){
-                //         console.log(err) 
-                //     }else{
-                //         pdf.create(html).toStream((err,stream)=>{
-                //             if(err){
-                //                 console.log(err) 
-                //             }
-                //             else{
-                //                 res.setHeader('Content-Type','application/pdf')
-                //                 stream.pipe(res)
-                //             }
-                //         })
-                //     }
+            //     },(err,html)=>{
+            //         if(err){
+            //             console.log(err) 
+            //         }else{
+            //             pdf.create(html).toStream((err,stream)=>{
+            //                 if(err){
+            //                     console.log(err) 
+            //                 }
+            //                 else{
+            //                     res.setHeader('Content-Type','application/pdf')
+            //                     stream.pipe(res)
+            //                 }
+            //             })
+            //         }
             })
         })
         .catch((err) => {

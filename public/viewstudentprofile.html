@@ -33,6 +33,7 @@
         $http.get('/dp')
           .then(function(response) {
             $scope.users = response.data;
+            localStorage.setItem('user_data', JSON.stringify(response.data.offerletter))
           });
       });
     </script>

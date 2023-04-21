@@ -28,6 +28,11 @@
         }
         th,td{
           text-align: center;
+          width:20%;
+        }
+        .abc{
+          width:500%;
+          height:20%
         }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
@@ -39,6 +44,9 @@
           $scope.users = response.data;
         });
     });
+  </script>
+  <script>
+    var resume =users
   </script>
    <script>
     function myFunction()
@@ -105,7 +113,11 @@
               <td>{{user.username}}</td>
               <td>{{user.name}}</td>
               <td><a href="../uploads/{{user.resume}}">View Resume</a></td>
-              <td><a href="../uploads/{{user.offerletter}}">View Offerletter</a></td>
+              <td class="abc">
+                <div ng-repeat="i in user.offerletter" >
+                  <a href="../uploads/{{i}}">{{i}}</a>
+                </div>
+              </td>
             </tr>   
     </tbody>
   </table>

@@ -231,24 +231,6 @@ app.get('/studentaq', (req, res) => {
   res.render('studentaq', { message: '' });
 })
 
-/*app.get('/shareexperience',(req,res)=>{
-  const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
-  res.render('/shareexperience',{message:''});
-})
-
-app.get('/viewinsights',(req,res)=>{
-  const myCookie = req.cookies.user;
-  if(!myCookie){
-      res.send("switch to student account");
-      return;
-    }
-  res.render('/viewinsights',{message:''});
-})*/
-
 
 
 
@@ -648,4 +630,8 @@ app.get("/filter/:branch/:gender/:course/:gpa10/:intertype/:gpa12/:cgpa/", async
 })
 
 app.use("/uploads", express.static("uploads"));
+function validate(req,res){
+  res.json({"message":"404 Not Found"})
+}
+app.use(validate)
 app.listen(3000, () => console.log("Server listening on port 3000"));

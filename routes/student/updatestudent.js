@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 }]), async (req, res) => {
+router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resume", maxCount: 1 },  { name: "offerletter", maxCount: 1 }]), async (req, res) => {
   try {
 
     if (req.files["profile"]) {
@@ -57,10 +57,9 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
       //  user.resume=resume;
       req.body.resume = req.files["resume"][0].filename;
     }
-    // if (req.files["offerletter"]) {
-    //   req.body.offerletter = req.files["offerletter"][0].filename;
-
-    // }
+    if (req.files["offerletter"]) {
+      req.body.offerletter = req.files["offerletter"][0].filename;
+    }
 
     //  if(req.body.dob){
     //      user.dob = req.body.dob;
@@ -87,7 +86,6 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
         "dob": req.body.dob,
         "intertype":req.body.intertype,
         "resume": req.body.resume,
-        "offerletter": req.body.offerletter,
         "skills": req.body.skills,
         "certifications": req.body.certificates,
         "projects": req.body.project,
@@ -99,6 +97,9 @@ router.post("/", upload.fields([{ name: "profile", maxCount: 1 }, { name: "resum
         "noofcompaniesplaced": req.body.noofcompaniesplaced,
         "namesofcompaniesplaced": req.body.namesofcompanies,
         "HighestPackage": req.body.HighestPackage
+      },
+      $push: {
+        "offerletter": req.body.offerletter
       }
     }, { new: true }).then(result => {
       console.log(result)
