@@ -13,7 +13,7 @@ app.set('views', path.join('../../', 'views'))
 
 const puppeteer = require('puppeteer')
 const fs = require('fs')
-
+  
 
 const { User } = require('../../models/registermodel');
 app.use(bodyParser.urlencoded({ extended: true }));
