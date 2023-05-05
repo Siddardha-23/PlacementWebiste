@@ -317,6 +317,9 @@
                 <p><b>Phone:</b>
                     <%= data.phone%>
                 </p>
+                <p hidden id="username">
+                    <%= data.username%>
+                </p>
                 <p><b>Email:</b>
                     <%= data.email%>
                 </p>
@@ -446,12 +449,13 @@
         window.jsPDF = window.jspdf.jsPDF;
 
         function Convert_HTML_To_PDF() {
-            var name = (document.getElementById("name").innerHTML).trim();
-            var doc = new jsPDF('p', 'mm', [1500, 1200]);
+            var name = (document.getElementById("username").innerHTML).trim();
+            var doc = new jsPDF('p', 'mm',[1000,1000]);
+            
             var elementHTML = document.querySelector("#resume");
             doc.html(elementHTML, {
                 callback: function(doc) {
-                    doc.save(name + '.pdf');
+                    doc.save(name + '_resume.pdf');
                 }
             });
         }
