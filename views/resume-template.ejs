@@ -129,7 +129,7 @@
             left: calc(350px + 5%);
             right: 0;
             bottom: 0;
-            height: 100px;
+            height: 110px;
             text-align: right;
             font-family: 'Times New Roman', Times, serif;
             font-size: 40px;
@@ -450,7 +450,7 @@
 
         function Convert_HTML_To_PDF() {
             var name = (document.getElementById("username").innerHTML).trim();
-            var doc = new jsPDF('p', 'mm',[1250,980]);
+            var doc = new jsPDF('p', 'mm',[1250,990]);
             
             var elementHTML = document.querySelector("#resume");
             doc.html(elementHTML, {
