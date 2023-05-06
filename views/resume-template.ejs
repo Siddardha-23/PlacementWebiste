@@ -308,6 +308,10 @@
 
 <body>
   <div id="resume">
+    <div>
+      <button id="filter-btn" onclick="downloadResume();" >Download</button>
+      <input type="submit" onclick="downloadResume();" value="Download" class="btn btn-primary">
+    </div>
     <div class="rela-block page">
       <div class="rela-block top-bar">
         <div class="caps name  ">
@@ -407,27 +411,23 @@
       </div>
     </div>
   </div>
-  <div>
-    <button id="filter-btn" onclick="downloadResume();" style="cursor: pointer; width: 200px; padding: 10px 10px; border-radius: 12px; margin-left:280px; margin-right: 100px;" onmouseover="this.style.transform = 'scale(1.1)'" onmouseout="this.style.transform = 'scale(1)'">Download</button>
-  </div>
+  
   <script>
     setTimeout(() => {
       downloadResume()
     }, 3000)
     function downloadResume() {
       let resume = document.getElementById('resume')
-      // console.log(resume)
-      // html2canvas(resume).then(canvas => {
+      console.log(resume)
+      html2canvas(resume).then(canvas => {
        
-      //  const image = canvas.toDataURL("image/png");
-      //  const link = document.createElement('a');
-      //  link.download = 'myImage.png';
-      //  link.href = image;
-      //  document.body.appendChild(link);
-      //   link.click();
-      //   document.body.removeChild(link);
-
-
+       const image = canvas.toDataURL("image/png");
+       const link = document.createElement('a');
+       link.download = 'myImage.png';
+       link.href = image;
+       document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
 
     //     html2canvas(resume).then(canvas => {  
@@ -437,17 +437,18 @@
     // pdf.save('myDocument.pdf');
  // });
 
-      html2canvas(resume ).then((canvas) =>{
-        const pdf = new jsPDF('p','mm','a4');
-        const imgData = canvas.toDataURL("image/png");
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pagesize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save(resume.pdf);
+      // html2canvas(resume ).then((canvas) => {
+      //   const pdf = new jsPDF('p','mm','a4');
+      //   const imgData = canvas.toDataURL("image/png");
+      //   const imgProps = pdf.getImageProperties(imgData);
+      //   const pdfWidth = pdf.internal.pagesize.getWidth();
+      //   const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      //   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      //   pdf.save(resume.pdf);
       
     })
-     
+   
     }
   </script>
 </body>
+
