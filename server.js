@@ -2,7 +2,6 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const multer = require("multer");
 var cookieParser = require('cookie-parser');
 
@@ -634,4 +633,4 @@ function validate(req,res){
   res.json({"message":"404 Not Found"})
 }
 app.use(validate)
-app.listen(3000, () => console.log("Server listening on port 3000"));
+app.listen(3001, () => console.log("Server listening on port 3001"));

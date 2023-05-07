@@ -311,7 +311,9 @@
             </div>
             <div class="input-field">
                 <label>Offer Letter</label><br>
-                <a href="uploads/{{ users.offerletter[0] }}" style="font-size: medium;">{{ users.offerletter }}</a>
+                <div ng-repeat="i in users.offerletter" >
+                  <a href="../uploads/{{i}}" style="font-size: medium;">{{i}}</a>
+                </div>
                 <div class="underline"></div>
             </div>
             <div class="input-field">
