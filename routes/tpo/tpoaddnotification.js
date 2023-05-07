@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 const router = express.Router();

@@ -1,7 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const multer = require("multer");
 var cookieParser = require('cookie-parser');
 const app = express();
