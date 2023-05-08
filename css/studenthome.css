@@ -62,6 +62,10 @@ main h2::before {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
 }
+.para{
+    font-size: large;
+
+}
 .main2 h5{
     padding-top: 25px;
 }
@@ -286,16 +290,24 @@ form input[type="submit"]:hover {
   @media screen and (max-width:450px) {
     main h2{
         font-size: large;
-        margin-left: 3%;
+        margin-left: 5%;
+    }
+    .heading{
+        padding-bottom: 0px;
     }
     .img1 img{
-        display: none;
+        width:40px;
+        height:40px;
+        margin-left: 3%;
     }
     .img2 img{
-        display: none;
+        width:50px;
+        height:50px;
+        margin-right: 3%;
+        margin-top: 6%;
     }
     .main2{
-        margin-left: 8%;
+        margin-left: 3%;
         font-size: medium;
     }
     .main2 a img {
@@ -303,8 +315,10 @@ form input[type="submit"]:hover {
         height:180px
     }
     table {
-        font-size: small;
-        
+        font-size:x-small;
+        width:350px;
       }
-
+    .para{
+        font-size: small;
+    }
   }

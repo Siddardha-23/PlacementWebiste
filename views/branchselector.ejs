@@ -10,11 +10,13 @@
     <style>
         .container{
             width:auto;
+            min-width: 380px;
+            min-height: 20vh;
         }
         .nav-link,.navbar-brand{
           color: white;
         }
- 
+        
     select{
 border: 1px solid lightgray;
    min-height: 5vh;
@@ -25,6 +27,15 @@ border: 1px solid lightgray;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+@media screen and (max-width:400px) {
+  select{
+    height:5px;    
+  }
+  .container{
+    height: auto;
+    min-height: 3vh;
+  }
 }
   </style>
   <script>
@@ -85,7 +96,7 @@ border: 1px solid lightgray;
       </nav>
   
 
-  <main class="container" style="min-width: 380px;min-height: 20vh;">
+  <main class="container" >
         <h2>Branch Wise Selected Students</h2>
         <form action="/displayselected" method="post">
             <div class="input-field">
