@@ -11,6 +11,8 @@
         .container{
             margin-top: 4%;
             width:550px;
+            min-width: 380px;
+            min-height: 30vh;
         }
         .nav-link,.navbar-brand{
           color: white;
@@ -35,6 +37,11 @@ border: 1px solid lightgray;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+@media screen and (max-width:450px) {
+  .container{
+    min-height:10vh;
+  }
 }
   
   </style>
@@ -89,7 +96,7 @@ border: 1px solid lightgray;
         </div>
       </nav>
 
-  <main class="container" style="min-width: 380px;height: 30vh;">
+  <main class="container">
         <h2 style="margin-bottom: 0rem;">Resume</h2>
         <% if (message) { %>
             <p style="color: green"><%= message %></p>

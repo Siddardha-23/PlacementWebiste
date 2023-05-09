@@ -11,6 +11,8 @@
         .container{
             margin-top: 5%;
             width:800px;
+            min-width: 380px;
+            min-height: 27vh;
         }
         .nav-link,.navbar-brand{
           color: white;
@@ -89,7 +91,7 @@ border: 1px solid lightgray;
         </div>
       </nav>
 
-  <main class="container" style="min-width: 380px;height: 30vh;">
+  <main class="container" >
         <h2 style="margin-bottom: 0rem;">Send Notification</h2>
         <% if (message) { %>
             <p style="color: green"><%= message %></p>

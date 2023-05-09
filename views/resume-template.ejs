@@ -286,15 +286,28 @@
             margin-left: 5px;
         }
         
-        @media screen and (max-width: 1150px) {
+        @media screen and (max-width: 1150px) and (min-width:449px){
             .name {
                 color: #fff;
-                font-family: 'Raleway';
+                font-family:'Times New Roman', Times, serif;
                 font-size: 38px;
                 letter-spacing: 6px;
                 font-weight: 100;
                 line-height: 48px;
             }
+        }
+        @media screen and (max-width:450px) {
+            #resume{
+                width: 500%;
+            }
+            .name{
+                letter-spacing: 3px;
+                color: #fff;
+                font-family:'Times New Roman', Times, serif;
+                font-size: 35px;
+                line-height: 48px;
+            }
+            
         }
     </style>
 </head>
